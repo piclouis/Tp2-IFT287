@@ -12,12 +12,12 @@ import java.sql.*;
  * Fichier de base pour le TP2 du cours IFT287
  *
  * <pre>
- * 
+ *
  * Vincent Ducharme
  * Universite de Sherbrooke
  * Version 1.0 - 16 août 2018
  * IFT287 - Exploitation de BD relationnelles et OO
- * 
+ *
  * Ce programme permet d'appeler des transactions d'un systeme
  * de gestion utilisant une base de donnees.
  *
@@ -52,9 +52,9 @@ public class CentreSportif
             System.out.println("Usage: java CentreSportif.CentreSportif <serveur> <bd> <user> <password> [<fichier-transactions>]");
             return;
         }
-        
+
         cx = null;
-        
+
         try
         {
             // Il est possible que vous ayez à déplacer la connexion ailleurs.
@@ -121,7 +121,7 @@ public class CentreSportif
         }
     }
 
-    
+
     // ****************************************************************
     // *   Les methodes suivantes n'ont pas besoin d'etre modifiees   *
     // ****************************************************************
@@ -205,3 +205,4 @@ public class CentreSportif
     }
 
 }
+
