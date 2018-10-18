@@ -37,12 +37,12 @@ public class TableParticipants {
         return stmtDelete.executeUpdate();
     }
 
-    public void inscrire(String prenom, String nom, String motDePasse, String nomEquipe) throws SQLException
+    public void inscrire(String prenom, String nom, String motDePasse, int matricule) throws SQLException
     {
         stmtInsert.setString(1, prenom);
         stmtInsert.setString(2, nom);
         stmtInsert.setString(3, motDePasse);
-        stmtInsert.setString(4, nomEquipe);
+        stmtInsert.setInt(4, matricule);
         stmtInsert.executeUpdate();
     }
 
