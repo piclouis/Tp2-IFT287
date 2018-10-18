@@ -37,12 +37,36 @@ public class TableParticipants {
         return stmtDelete.executeUpdate();
     }
 
-    public void inscrire(int matricule, String nom, String motDePasse, String nomEquipe) throws SQLException
+    public void inscrire(String prenom, String nom, String motDePasse, String nomEquipe) throws SQLException
     {
-        stmtInsert.setInt(1, matricule);
+        stmtInsert.setString(1, prenom);
         stmtInsert.setString(2, nom);
         stmtInsert.setString(3, motDePasse);
         stmtInsert.setString(4, nomEquipe);
         stmtInsert.executeUpdate();
+    }
+
+    //Lecture d'un participant
+
+    public TupleParticipant getParticipant(int matricule) throws SQLException
+    {
+        stmtExiste.setInt(1, matricule);
+        ResultSet rset = stmtExiste.executeQuery();
+        if (rset.next())
+        {
+            TupleParticipant tupleParticipant = new TupleParticipant();
+            tupleParticipant.setMatricule(matricule);
+            tupleParticipant.setNom(rset.getString(1));
+            tupleParticipant.setPrenom(rset.getString(2));
+            tupleParticipant.setMotDePasse(rset.getString(3));
+            tupleParticipant.setNomEquipe(rset.getString(4));
+
+            rset.close();
+            return tupleParticipant;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

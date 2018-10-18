@@ -43,4 +43,26 @@ public class TableLigues {
         stmtInsert.setInt(2, nbJoueurMaxParEquipe);
         stmtInsert.executeUpdate();
     }
+
+    //Lecture d'une ligue
+
+    public TupleLigue getLigue(int nomLigue) throws SQLException
+    {
+        stmtExiste.setString(1, nomLigue);
+        ResultSet rset = stmtExiste.executeQuery();
+        if (rset.next())
+        {
+            TupleLigue tupleLigue = new TupleLigue();
+            tupleLigue.setNomLigue(nomLigue);
+            tupleLigue.setNbMaxJoueurParEquipe(rset.getInt(1));
+
+            rset.close();
+            return tupleLigue;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }

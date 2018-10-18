@@ -48,4 +48,26 @@ public class TableEquipes {
         stmtInsert.executeUpdate();
     }
 
+    //Lecture d'une equipe
+
+    public TupleEquipe getEquipe(int nomEquipe) throws SQLException
+    {
+        stmtExiste.setString(1, nomEquipe);
+        ResultSet rset = stmtExiste.executeQuery();
+        if (rset.next())
+        {
+            TupleEquipe tupleEquipe = new TupleEquipe();
+            tupleEquipe.setNomLigue(nomLigue);
+            tupleEquipe.setNomEquipe(rset.getString(1));
+            tupleEquipe.setMatriculeCapitaine(rset.getInt(2));
+
+            rset.close();
+            return tupleEquipe;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }

@@ -1,5 +1,5 @@
 // Travail fait par :
-//   NomEquipier1 - Matricule
+//   Antoine Lazure - 14 098 870
 //   NomEquipier2 - Matricule
 
 package CentreSportif;
