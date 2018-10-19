@@ -21,14 +21,14 @@ public class TableResultats {
 
         stmtExiste = cx.getConnection().prepareStatement(
                 "select nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
-                        + "from resultat where nomEquipeA = ? and nomEquipeB = ?");
+                        + "from resultats where nomEquipeA = ? and nomEquipeB = ?");
         stmtExisteEquipe = cx.getConnection()
                 .prepareStatement("select idResultat, nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
-                        + "from resultat where nomEquipeA = ? AND nomEquipeB = ? " + "order by dateResultat");
+                        + "from resultats where nomEquipeA = ? AND nomEquipeB = ? " + "order by dateResultat");
         stmtInsert = cx.getConnection()
-                .prepareStatement("insert into resultat (idResultat, nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB) "
+                .prepareStatement("insert into resultats (idResultat, nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB) "
                         + "values (DEFAULT,?,?,?,?)");
-        stmtDelete = cx.getConnection().prepareStatement("delete from resultat where dateResultat = ?");
+        stmtDelete = cx.getConnection().prepareStatement("delete from resultats where dateResultat = ?");
 
     }
 

@@ -49,8 +49,8 @@ public class GestionParticipant {
             TupleParticipant tupleParticipant = participants.getParticipant(matricule);
             if (tupleParticipant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
-            if (equipes.getEquipe(nomEquipe) == null)
-                throw new IFT287Exception("Participant:" + matricule + " n'a pas d'equipe: " + nomEquipe);
+            if (tupleParticipant.getNomEquipe() != null)
+                throw new IFT287Exception("Le participant avec la matricule " + matricule + " fait partie de l'équipe " + tupleParticipant.getNomEquipe());
 
             // Suppression d'un participant
             int nb = participants.supprimer(matricule);

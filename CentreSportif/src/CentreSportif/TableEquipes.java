@@ -18,17 +18,17 @@ public class TableEquipes {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().prepareStatement(
-                "select nomLigue, nomEquipe, matriculeCapitaine from equipe where nomEquipe = ?");
+                "select nomLigue, nomEquipe, matriculeCapitaine from equipes where nomEquipe = ?");
         stmtInsert = cx.getConnection()
-                .prepareStatement("insert into equipe (nomLigue, nomEquipe, matriculeCapitaine) "
+                .prepareStatement("insert into equipes (nomLigue, nomEquipe, matriculeCapitaine) "
                         + "values (?,?,?)");
         stmtDelete = cx.getConnection().prepareStatement("delete from equipe where nomEquipe = ?");
 
         stmtListeEquipesTriesLigue = cx.getConnection().prepareStatement(
-                "select nomLigue, nomEquipe, matriculeCapitaine from equipe order by nomLigue");
+                "select nomLigue, nomEquipe, matriculeCapitaine from equipes order by nomLigue");
 
         stmtListeEquipesTriesLigue = cx.getConnection().prepareStatement(
-                "select nomLigue, nomEquipe, matriculeCapitaine from equipe where nomLigue = ?");
+                "select nomLigue, nomEquipe, matriculeCapitaine from equipes where nomLigue = ?");
 
     }
 

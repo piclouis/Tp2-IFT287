@@ -16,11 +16,11 @@ public class TableLigues {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().prepareStatement(
-                "select nomLigue, nbJoueurMaxParEquipe from ligue where nomLigue = ?");
+                "select nomLigue, nbJoueurMaxParEquipe from ligues where nomLigue = ?");
         stmtInsert = cx.getConnection()
-                .prepareStatement("insert into ligue (nomLigue, nbJoueursMax) "
+                .prepareStatement("insert into ligues (nomLigue, nbJoueursMax) "
                         + "values (?,?)");
-        stmtDelete = cx.getConnection().prepareStatement("delete from ligue where nomLigue = ?");
+        stmtDelete = cx.getConnection().prepareStatement("delete from ligues where nomLigue = ?");
 
     }
 
@@ -65,4 +65,7 @@ public class TableLigues {
         }
     }
 
+    public Connexion getConnexion() {
+        return cx;
+    }
 }

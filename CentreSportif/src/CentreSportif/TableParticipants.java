@@ -19,14 +19,14 @@ public class TableParticipants {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().prepareStatement(
-                "select matricule, nom, prenom, motDePasse, nomEquipe from participant where matricule = ?");
+                "select matricule, nom, prenom, motDePasse, nomEquipe from participants where matricule = ?");
         stmtInsert = cx.getConnection()
-                .prepareStatement("insert into participant (matricule, nom, prenom, motDePasse, nomEquipe) "
+                .prepareStatement("insert into participants (matricule, nom, prenom, motDePasse, nomEquipe) "
                         + "values (?,?,?,?, null)");
-        stmtDelete = cx.getConnection().prepareStatement("delete from participant where matricule = ?");
+        stmtDelete = cx.getConnection().prepareStatement("delete from participants where matricule = ?");
 
         stmtgetJoueurEquipe = cx.getConnection().prepareStatement(
-                "select matricule, nom, prenom, motDePasse, nomEquipe from participant where nomEquipe = ?");
+                "select matricule, nom, prenom, motDePasse, nomEquipe from participants where nomEquipe = ?");
 
     }
 
@@ -44,10 +44,11 @@ public class TableParticipants {
     }
 
     public void inscrire(String prenom, String nom, String motDePasse, int matricule) throws SQLException {
-        stmtInsert.setString(1, prenom);
-        stmtInsert.setString(2, nom);
-        stmtInsert.setString(3, motDePasse);
-        stmtInsert.setInt(4, matricule);
+        stmtInsert.setInt(1, matricule);
+        stmtInsert.setString(2, prenom);
+        stmtInsert.setString(3, nom);
+        stmtInsert.setString(4, motDePasse);
+
         stmtInsert.executeUpdate();
     }
 
