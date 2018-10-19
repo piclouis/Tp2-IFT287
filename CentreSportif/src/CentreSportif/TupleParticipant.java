@@ -10,7 +10,7 @@ public class TupleParticipant {
     public TupleParticipant() {
     }
 
-    public TupleParticipant (int matricule, String nom, String prenom, String motDePasse, String nomEquipe){
+    public TupleParticipant(int matricule, String nom, String prenom, String motDePasse, String nomEquipe) {
         this.setMatricule(matricule);
         this.setNom(nom);
         this.setPrenom(prenom);
@@ -51,10 +51,17 @@ public class TupleParticipant {
     }
 
     public String getMotDePasse() {
-        return password;
+        return motDePasse;
     }
 
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
+    }
+
+    @Override
+    public String toString() {
+        return "Matricule:" + matricule +
+                "\n Nom:'" + nom + '\'' +
+                "\n Prenom:'" + prenom;
     }
 }

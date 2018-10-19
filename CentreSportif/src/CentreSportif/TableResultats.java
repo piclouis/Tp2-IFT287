@@ -1,5 +1,6 @@
 package CentreSportif;
 
+import java.sql.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,34 +13,39 @@ public class TableResultats {
     private PreparedStatement stmtInsert;
     private PreparedStatement stmtDelete;
 
+    public TableResultats() {
+    }
+
     public TableResultats(Connexion cx) throws SQLException {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().prepareStatement(
-                "select dateResultat, nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
-                        +"from resultat where dateResultat = ?");
+                "select nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
+                        + "from resultat where nomEquipeA = ? and nomEquipeB = ?");
         stmtExisteEquipe = cx.getConnection()
-                .prepareStatement("select dateResultat, nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
+                .prepareStatement("select idResultat, nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
                         + "from resultat where nomEquipeA = ? AND nomEquipeB = ? " + "order by dateResultat");
         stmtInsert = cx.getConnection()
-                .prepareStatement("insert into resultat (dateResultat, nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB) "
+                .prepareStatement("insert into resultat (idResultat, nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB) "
                         + "values (?,?,?,?,?)");
         stmtDelete = cx.getConnection().prepareStatement("delete from resultat where dateResultat = ?");
 
     }
 
-    public boolean existe(Date dateResultat) throws SQLException {
-        stmtExiste.setDate(1, Date.valueOf(dateResultat));
+    public boolean existe(String nomEquipeA, String nomEquipeB) throws SQLException {
+        stmtExiste.setString(1, nomEquipeA);
+        stmtExiste.setString(1, nomEquipeB);
         ResultSet rs = stmtExiste.executeQuery();
         boolean resultatExiste = rs.next();
         rs.close();
         return resultatExiste;
     }
 
-    public int supprimer(Date dateResultat) throws SQLException {
-        stmtDelete.setDate(1, Date.valueOf(dateResultat));
+    public int supprimer(int idResultat) throws SQLException {
+        stmtExiste.setInt(1, idResultat);
         return stmtDelete.executeUpdate();
     }
+
     public void ajouterResultat(String nomEquipeA, int scoreEquipeA, String nomEquipeB, int scoreEquipeB) throws SQLException {
         stmtInsert.setString(2, nomEquipeA);
         stmtInsert.setInt(2, scoreEquipeA);
@@ -50,14 +56,12 @@ public class TableResultats {
 
     //Lecture d'un resultat
 
-    public TupleParticipant getResultat(Date dateResultat) throws SQLException
-    {
-        stmtExiste.setDate(1, Date.valueOf(dateResultat);
+    public TupleResultat getResultat(int idResultat) throws SQLException {
+        stmtExiste.setInt(1, idResultat);
         ResultSet rset = stmtExiste.executeQuery();
-        if (rset.next())
-        {
+        if (rset.next()) {
             TupleResultat tupleResultat = new TupleResultat();
-            tupleResultat.setDateResultat(dateResultat);
+            tupleResultat.setIdResultat(idResultat);
             tupleResultat.setNomEquipeA(rset.getString(1));
             tupleResultat.setScoreEquipeA(rset.getInt(2));
             tupleResultat.setNomEquipeA(rset.getString(3));
@@ -65,12 +69,19 @@ public class TableResultats {
 
             rset.close();
             return tupleResultat;
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
+
+    /**
+     * Retourner la connexion associée.
+     */
+    public Connexion getConnexion()
+    {
+        return cx;
+    }
+
 
 
 }

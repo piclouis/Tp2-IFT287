@@ -46,7 +46,7 @@ public class TableLigues {
 
     //Lecture d'une ligue
 
-    public TupleLigue getLigue(int nomLigue) throws SQLException
+    public TupleLigue getLigue(String nomLigue) throws SQLException
     {
         stmtExiste.setString(1, nomLigue);
         ResultSet rset = stmtExiste.executeQuery();
@@ -54,7 +54,7 @@ public class TableLigues {
         {
             TupleLigue tupleLigue = new TupleLigue();
             tupleLigue.setNomLigue(nomLigue);
-            tupleLigue.setNbMaxJoueurParEquipe(rset.getInt(1));
+            tupleLigue.setNbJoueurMaxParEquipe(rset.getInt(1));
 
             rset.close();
             return tupleLigue;

@@ -1,8 +1,10 @@
 package CentreSportif;
 
+import java.sql.*;
+
 public class TupleResultat {
 
-    private Date dateResultat;
+    private int idResultat;
     private String nomEquipeA;
     private String nomEquipeB;
     private int scoreEquipeA;
@@ -11,21 +13,20 @@ public class TupleResultat {
     public TupleResultat() {
     }
 
-    public TupleResultat(Date dateResultat, String nomEquipeA, String nomEquipeB, int scoreEquipeA, int scoreEquipeB) {
-        this.setDateResultat(dateResultat);
+    public TupleResultat(int idResultat, String nomEquipeA, String nomEquipeB, int scoreEquipeA, int scoreEquipeB) {
+        this.setIdResultat(idResultat);
         this.setNomEquipeA(nomEquipeA);
         this.setNomEquipeB(nomEquipeB);
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
-
     }
 
-    public Date getDateResultat() {
-        return dateResultat;
+    public int getIdResultat() {
+        return idResultat;
     }
 
-    public void setDatePartie(Date dateResultat) {
-        this.dateResultat = dateResultat;
+    public void setIdResultat(int idResultat) {
+        this.idResultat = idResultat;
     }
 
     public String getNomEquipeA() {

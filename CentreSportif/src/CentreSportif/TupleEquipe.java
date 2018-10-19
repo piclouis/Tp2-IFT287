@@ -1,16 +1,14 @@
 package CentreSportif;
 
 public class TupleEquipe {
-
     private String nomEquipe;
     private String nomLigue;
     private int matriculeCapitaine;
 
-
     public TupleEquipe() {
     }
 
-    public TupleEquipe(String nomLigue,String nomEquipe,int matriculeCapitaine) {
+    public TupleEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) {
         this.setNomLigue(nomLigue);
         this.setNomEquipe(nomEquipe);
         this.setMatriculeCapitaine(matriculeCapitaine);

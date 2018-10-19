@@ -40,8 +40,7 @@ public class TableEquipes {
         return equipeExiste;
     }
 
-    public void ajouter(String nomLigue, String nomEquipe,int matriculeCapitaine) throws SQLException
-    {
+    public void ajouter(String nomLigue, String nomEquipe, int matriculeCapitaine) throws SQLException {
         stmtInsert.setString(1, nomLigue);
         stmtInsert.setString(2, nomEquipe);
         stmtInsert.setInt(3, matriculeCapitaine);
@@ -50,24 +49,28 @@ public class TableEquipes {
 
     //Lecture d'une equipe
 
-    public TupleEquipe getEquipe(int nomEquipe) throws SQLException
-    {
+    public TupleEquipe getEquipe(String nomEquipe) throws SQLException {
         stmtExiste.setString(1, nomEquipe);
         ResultSet rset = stmtExiste.executeQuery();
-        if (rset.next())
-        {
+
+        if (rset.next()) {
             TupleEquipe tupleEquipe = new TupleEquipe();
-            tupleEquipe.setNomLigue(nomLigue);
-            tupleEquipe.setNomEquipe(rset.getString(1));
-            tupleEquipe.setMatriculeCapitaine(rset.getInt(2));
+            tupleEquipe.setNomLigue(rset.getString(1));
+            tupleEquipe.setNomEquipe(nomEquipe);
+            tupleEquipe.setMatriculeCapitaine(rset.getInt(3));
 
             rset.close();
             return tupleEquipe;
-        }
-        else
-        {
+        } else {
             return null;
         }
+    }
+
+    /**
+     * Retourner la connexion associée.
+     */
+    public Connexion getConnexion() {
+        return cx;
     }
 
 }
