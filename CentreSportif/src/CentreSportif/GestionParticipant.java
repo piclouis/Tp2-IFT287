@@ -4,18 +4,18 @@ import java.sql.*;
 
 public class GestionParticipant {
     private Connexion cx;
-    private TableParticipants participant;
-    private TableEquipes equipe;
+    private TableParticipants participants;
+    private TableEquipes equipes;
 
     /**
      * Création d'une instance
      */
-    public GestionParticipant(TableParticipants participant, TableEquipes equipe) throws IFT287Exception {
-        this.cx = participant.getConnexion();
-        if (participant.getConnexion() != equipe.getConnexion())
+    public GestionParticipant(TableParticipants participants, TableEquipes equipes) throws IFT287Exception {
+        this.cx = participants.getConnexion();
+        if (participants.getConnexion() != equipes.getConnexion())
             throw new IFT287Exception("Les instances de TableParticipants et de TableEquipes n'utilisent pas la même connexion au serveur");
-        this.participant = participant;
-        this.equipe = equipe;
+        this.participants = participants;
+        this.equipes = equipes;
     }
 
     /**
@@ -26,11 +26,11 @@ public class GestionParticipant {
             throws SQLException, IFT287Exception, Exception {
         try {
             // Vérifie si le particpant existe déja
-            if (participant.existe(matricule)) // a voir
+            if (participants.existe(matricule)) // a voir
                 throw new IFT287Exception("Participant existe déjà: " + matricule); //a voir
 
             // Ajout d'un particpant.
-            participant.inscrire(prenom, nom, motDePasse, matricule);
+            participants.inscrire(prenom, nom, motDePasse, matricule);
 
             // Commit
             cx.commit();
@@ -46,14 +46,14 @@ public class GestionParticipant {
     public void supprimerParticipant(int matricule) throws SQLException, IFT287Exception, Exception {
         try {
             // Vérifie si le participant existe et qu'il fait partie d'une equipe
-            TupleParticipant tupleParticipant = participant.getParticipant(matricule);
+            TupleParticipant tupleParticipant = participants.getParticipant(matricule);
             if (tupleParticipant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
-            if (tupleParticipant.getNomEquipe() == null)
-                throw new IFT287Exception("Participant " + matricule + " ne fait pas partie d'une equipe");
+            if (equipes.getEquipe(nomEquipe) == null)
+                throw new IFT287Exception("Participant:" + matricule + " n'a pas d'equipe: " + nomEquipe);
 
             // Suppression d'un participant
-            int nb = participant.supprimer(matricule);
+            int nb = participants.supprimer(matricule);
             if (nb == 0)
                 throw new IFT287Exception("Participant " + matricule + " inexistant");
 
