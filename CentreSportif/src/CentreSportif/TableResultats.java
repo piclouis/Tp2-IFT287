@@ -27,18 +27,9 @@ public class TableResultats {
                         + "from resultat where nomEquipeA = ? AND nomEquipeB = ? " + "order by dateResultat");
         stmtInsert = cx.getConnection()
                 .prepareStatement("insert into resultat (idResultat, nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB) "
-                        + "values (?,?,?,?,?)");
+                        + "values (DEFAULT,?,?,?,?)");
         stmtDelete = cx.getConnection().prepareStatement("delete from resultat where dateResultat = ?");
 
-    }
-
-    public boolean existe(String nomEquipeA, String nomEquipeB) throws SQLException {
-        stmtExiste.setString(1, nomEquipeA);
-        stmtExiste.setString(1, nomEquipeB);
-        ResultSet rs = stmtExiste.executeQuery();
-        boolean resultatExiste = rs.next();
-        rs.close();
-        return resultatExiste;
     }
 
     public int supprimer(int idResultat) throws SQLException {

@@ -25,16 +25,12 @@ public class GestionResultat {
             throws SQLException, IFT287Exception, Exception {
         try {
             // Verifie si les equipes existent
-            TupleEquipe tupleEquipeA = getEquipe(nomEquipeA);
+            TupleEquipe tupleEquipeA = equipes.getEquipe(nomEquipeA);
             if(tupleEquipeA == null)
                 throw new IFT287Exception("Nom d'équipe A : " + nomEquipeA + "inexistant");
-            TupleEquipe tupleEquipeB = getEquipe(nomEquipeB);
+            TupleEquipe tupleEquipeB = equipes.getEquipe(nomEquipeB);
             if(tupleEquipeB == null)
                 throw new IFT287Exception("Nom d'équipe B : " + nomEquipeB + "inexistant");
-            // Vérifie si le resultat existe déja
-            if (resultats.existe(nomEquipeA, nomEquipeB))
-                throw new IFT287Exception("Équipe A : " + nomEquipeA + " et équipe B : " + nomEquipeB + " déja existant.");
-
 
             // Ajout d'un resultat dans la table des livres
             resultats.ajouterResultat(nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB);

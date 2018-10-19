@@ -32,12 +32,12 @@ public class TableLigues {
         return equipeExiste;
     }
 
-    public int supprimerLigue(String nomLigue) throws SQLException {
+    public int supprimer(String nomLigue) throws SQLException {
         stmtDelete.setString(1, nomLigue);
         return stmtDelete.executeUpdate();
     }
 
-    public void ajouterLigue(String nomLigue,int nbJoueurMaxParEquipe) throws SQLException
+    public void ajouter(String nomLigue,int nbJoueurMaxParEquipe) throws SQLException
     {
         stmtInsert.setString(1, nomLigue);
         stmtInsert.setInt(2, nbJoueurMaxParEquipe);
