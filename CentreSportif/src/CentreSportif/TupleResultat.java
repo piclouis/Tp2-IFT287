@@ -60,4 +60,11 @@ public class TupleResultat {
     public void setScoreEquipeB(int scoreEquipeB) {
         this.scoreEquipeB = scoreEquipeB;
     }
+
+    @Override
+    public String toString() {
+        return "Partie " + idResultat +
+                "\n  Equipe " + nomEquipeA + ": " + scoreEquipeA + " points\n" +
+                "  Equipe " + nomEquipeB + ": " + scoreEquipeB + " points ";
+    }
 }

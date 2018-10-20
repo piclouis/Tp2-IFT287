@@ -60,7 +60,7 @@ public class GestionLigue {
             if(!ligues.existe(nomLigue))
                 throw new IFT287Exception("Ligue inexistant: " + nomLigue);
 
-            System.out.printf("\nLigue : " + nomLigue);
+            System.out.println("Ligue : " + nomLigue);
             ArrayList<TupleEquipe> listeEquipes = equipes.getEquipes(nomLigue);
 
             for(TupleEquipe equipe : listeEquipes) {
@@ -69,10 +69,10 @@ public class GestionLigue {
                 int nbDefaites = resultats.nbDefaites(equipe.getNomEquipe(), listResultats);
                 int nbPartieNulles = resultats.nbPartiesNulles(equipe.getNomEquipe(), listResultats);
 
-                System.out.printf("\nNom d'équipe: " + equipe.getNomEquipe());
-                System.out.printf("\n  Nombre de victoires: " + nbVictoires);
-                System.out.printf("\n  Nombre de defaites: " + nbDefaites);
-                System.out.printf("\n  Nombre de parties nulles: " + nbPartieNulles);
+                System.out.println("Nom d'équipe: " + equipe.getNomEquipe());
+                System.out.println("  Nombre de victoires: " + nbVictoires);
+                System.out.println("  Nombre de defaites: " + nbDefaites);
+                System.out.println("  Nombre de parties nulles: " + nbPartieNulles);
             }
 
         } catch (Exception e) {

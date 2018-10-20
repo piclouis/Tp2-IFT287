@@ -60,8 +60,8 @@ public class TupleParticipant {
 
     @Override
     public String toString() {
-        return "Matricule:" + matricule +
-                "\n Nom:'" + nom + '\'' +
-                "\n Prenom:'" + prenom;
+        return "  Matricule: " + matricule +
+                "\n  Nom: " + nom +
+                "\n  Prenom: " + prenom;
     }
 }

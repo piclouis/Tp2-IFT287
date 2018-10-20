@@ -34,22 +34,29 @@ public class GestionEquipe {
 
             TupleParticipant capitaine = participants.getParticipant(tupleEquipe.getMatriculeCapitaine());
 
-            System.out.printf("Nom d'equipe :" + tupleEquipe.getNomEquipe() +
+            System.out.println("\nNom d'equipe : " + tupleEquipe.getNomEquipe() +
                     "\nNom de ligue : " + tupleEquipe.getNomLigue() +
                     "\nCapitaine : " + capitaine.getPrenom() + " " + capitaine.getNom());
-
+            System.out.println();
             ArrayList<TupleParticipant> listParticipants = participants.getJoueursEquipe(nomEquipe);
 
             if (listParticipants.isEmpty())
-                System.out.printf("Aucun joueur");
+                System.out.println("Aucun joueur");
 
             else {
-                System.out.printf("Liste des joueurs");
-                for (TupleParticipant participant : listParticipants)
-                    System.out.printf(participant.toString());
+                System.out.println("Liste des joueurs");
+                for (TupleParticipant participant : listParticipants) {
+                    System.out.println(participant.toString());
+                }
             }
 
-            System.out.printf("Liste des parties");
+            System.out.println();
+
+            ArrayList<TupleResultat> listResultats = resultats.getResultats(nomEquipe);
+
+            System.out.println("Liste des parties");
+            for (TupleResultat resultat: listResultats)
+                System.out.println(resultat.toString());
 
         } catch (Exception e) {
             cx.rollback();
