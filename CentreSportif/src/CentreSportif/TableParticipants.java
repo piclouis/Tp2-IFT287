@@ -11,7 +11,6 @@ public class TableParticipants {
 
     private PreparedStatement stmtExiste;
     private PreparedStatement stmtInsert;
-    private PreparedStatement stmtUpdate;
     private PreparedStatement stmtDelete;
     private PreparedStatement stmtgetJoueurEquipe;
 
@@ -27,7 +26,6 @@ public class TableParticipants {
 
         stmtgetJoueurEquipe = cx.getConnection().prepareStatement(
                 "select matricule, nom, prenom, motDePasse, nomEquipe from participants where nomEquipe = ?");
-
     }
 
     public boolean existe(int matricule) throws SQLException {
@@ -35,6 +33,7 @@ public class TableParticipants {
         ResultSet rs = stmtExiste.executeQuery();
         boolean participantExiste = rs.next();
         rs.close();
+
         return participantExiste;
     }
 

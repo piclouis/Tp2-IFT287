@@ -4,12 +4,13 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class GestionEquipe {
+    private TableLigues ligues;
     private TableEquipes equipes;
     private TableParticipants participants;
     private TableResultats resultats;
     private Connexion cx;
 
-    public GestionEquipe(TableEquipes equipes, TableParticipants participants, TableResultats resultats) throws IFT287Exception {
+    public GestionEquipe(TableLigues ligues, TableEquipes equipes, TableParticipants participants, TableResultats resultats) throws IFT287Exception {
         this.cx = equipes.getConnexion();
         if (equipes.getConnexion() != participants.getConnexion())
             throw new IFT287Exception("Les instances de TableEquipes et de TableParticipants n'utilisent pas la même connexion au serveur");
@@ -18,6 +19,7 @@ public class GestionEquipe {
         this.resultats = resultats;
         this.participants = participants;
         this.equipes = equipes;
+        this.ligues = ligues;
     }
 
     public void afficherEquipe(String nomEquipe) throws SQLException, IFT287Exception {
@@ -49,6 +51,31 @@ public class GestionEquipe {
 
             System.out.printf("Liste des parties");
 
+        } catch (Exception e) {
+            cx.rollback();
+            throw e;
+        }
+    }
+
+    public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception, SQLException {
+        try {
+            /*// Vérifie si l'equipe existe déja
+            if (equipes.existe(nomEquipe))
+                throw new IFT287Exception("Equipe existe déjà: " + nomEquipe);
+
+            // Vérifie si la ligue existe
+            if (!ligues.existe(nomLigue))
+                throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
+
+            // Verifie si le capitaine existe
+            if (participants.existe(matriculeCapitaine))
+                throw new IFT287Exception("Participant inexistant: " + nomEquipe);*/
+
+            // Ajout d'un particpant.
+            equipes.ajouter(nomLigue, nomEquipe, matriculeCapitaine);
+
+            // Commit
+            cx.commit();
         } catch (Exception e) {
             cx.rollback();
             throw e;

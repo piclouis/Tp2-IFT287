@@ -3,13 +3,13 @@ package CentreSportif;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class TableEquipes {
     private Connexion cx;
 
     private PreparedStatement stmtExiste;
     private PreparedStatement stmtInsert;
-    private PreparedStatement stmtUpdate;
     private PreparedStatement stmtDelete;
     private PreparedStatement stmtListeEquipesTriesLigue;    //  Liste des équipes trié par lignes
     private PreparedStatement stmtListeEquipesLigue;        // Liste des équipes d'une ligue
@@ -22,12 +22,12 @@ public class TableEquipes {
         stmtInsert = cx.getConnection()
                 .prepareStatement("insert into equipes (nomLigue, nomEquipe, matriculeCapitaine) "
                         + "values (?,?,?)");
-        stmtDelete = cx.getConnection().prepareStatement("delete from equipe where nomEquipe = ?");
+        stmtDelete = cx.getConnection().prepareStatement("delete from equipes where nomEquipe = ?");
 
         stmtListeEquipesTriesLigue = cx.getConnection().prepareStatement(
                 "select nomLigue, nomEquipe, matriculeCapitaine from equipes order by nomLigue");
 
-        stmtListeEquipesTriesLigue = cx.getConnection().prepareStatement(
+        stmtListeEquipesLigue = cx.getConnection().prepareStatement(
                 "select nomLigue, nomEquipe, matriculeCapitaine from equipes where nomLigue = ?");
 
     }
@@ -64,6 +64,21 @@ public class TableEquipes {
         } else {
             return null;
         }
+    }
+
+    public ArrayList<TupleEquipe> getEquipes(String nomLigue) throws SQLException {
+        ArrayList<TupleEquipe> equipes = new ArrayList<>();
+        stmtListeEquipesLigue.setString(1, nomLigue);
+        ResultSet rset = stmtListeEquipesLigue.executeQuery();
+
+        while(rset.next()) {
+            TupleEquipe tupleEquipe = new TupleEquipe();
+            tupleEquipe.setNomLigue(rset.getString(1));
+            tupleEquipe.setNomEquipe(rset.getString(2));
+            tupleEquipe.setMatriculeCapitaine(rset.getInt(3));
+            equipes.add(tupleEquipe);
+        }
+        return equipes;
     }
 
     /**

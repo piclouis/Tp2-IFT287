@@ -84,7 +84,6 @@ public class CentreSportif {
                 // de else if que necessaire. Vous n'avez pas a traiter la
                 // commande "quitter".
                 if (command.equals("inscrireParticipant")) {
-                    // Lecture des parametres
                     String prenom = readString(tokenizer);
                     String nom = readString(tokenizer);
                     String motDePasse = readString(tokenizer);
@@ -93,10 +92,27 @@ public class CentreSportif {
                     gestionCentreSportif.getGestionParticipant().inscrireParticipant(prenom, nom, motDePasse, matricule);
 
                     // Appel de la methode des gestionnaires qui traite la transaction specifique
-                } else if (command.equals("commande2")) {
-                    // Lire les parametres ici et appeler la bonne methode
-                    // de traitement pour la transaction
-                } else {
+                }
+                else if (command.equals("supprimerParticipant")) {
+                    int matricule = readInt(tokenizer);
+                    gestionCentreSportif.getGestionParticipant().supprimerParticipant(matricule);
+                }
+                else if (command.equals("ajouterLigue")) {
+                    String nomLigue = readString(tokenizer);
+                    int nbJoueurMaxParEquipe = readInt(tokenizer);
+                    gestionCentreSportif.getGestionLigue().ajouterLigue(nomLigue, nbJoueurMaxParEquipe);
+                }
+                else if (command.equals("supprimerLigue")) {
+                    String nomLigue = readString(tokenizer);
+                    gestionCentreSportif.getGestionLigue().supprimerLigue(nomLigue);
+                }
+                else if (command.equals("ajouterEquipe")) {
+                    String nomLigue = readString(tokenizer);
+                    String nomEquipe = readString(tokenizer);
+                    int matricule = readInt(tokenizer);
+                    gestionCentreSportif.getGestionEquipe().ajouterEquipe(nomLigue, nomEquipe, matricule);
+                }
+                else {
                     System.out.println(" : Transaction non reconnue");
                 }
             }

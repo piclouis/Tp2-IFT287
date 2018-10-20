@@ -18,7 +18,7 @@ public class TableLigues {
         stmtExiste = cx.getConnection().prepareStatement(
                 "select nomLigue, nbJoueurMaxParEquipe from ligues where nomLigue = ?");
         stmtInsert = cx.getConnection()
-                .prepareStatement("insert into ligues (nomLigue, nbJoueursMax) "
+                .prepareStatement("insert into ligues (nomLigue, nbJoueurMaxParEquipe) "
                         + "values (?,?)");
         stmtDelete = cx.getConnection().prepareStatement("delete from ligues where nomLigue = ?");
 
