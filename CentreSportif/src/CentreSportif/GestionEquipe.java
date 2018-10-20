@@ -59,7 +59,7 @@ public class GestionEquipe {
 
     public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception, SQLException {
         try {
-            /*// Vérifie si l'equipe existe déja
+            // Vérifie si l'equipe existe déja
             if (equipes.existe(nomEquipe))
                 throw new IFT287Exception("Equipe existe déjà: " + nomEquipe);
 
@@ -68,8 +68,8 @@ public class GestionEquipe {
                 throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
 
             // Verifie si le capitaine existe
-            if (participants.existe(matriculeCapitaine))
-                throw new IFT287Exception("Participant inexistant: " + nomEquipe);*/
+            if (!participants.existe(matriculeCapitaine))
+                throw new IFT287Exception("Participant inexistant: " + matriculeCapitaine);
 
             // Ajout d'un particpant.
             equipes.ajouter(nomLigue, nomEquipe, matriculeCapitaine);

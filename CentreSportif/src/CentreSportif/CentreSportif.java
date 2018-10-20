@@ -112,6 +112,9 @@ public class CentreSportif {
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionEquipe().ajouterEquipe(nomLigue, nomEquipe, matricule);
                 }
+                else if (command.equals("afficherEquipes")) {
+                    gestionCentreSportif.getGestionEquipe().afficherEquipe();
+                }
                 else {
                     System.out.println(" : Transaction non reconnue");
                 }
