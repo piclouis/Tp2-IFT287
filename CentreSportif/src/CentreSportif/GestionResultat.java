@@ -32,6 +32,9 @@ public class GestionResultat {
             if(tupleEquipeB == null)
                 throw new IFT287Exception("Nom d'équipe B : " + nomEquipeB + "inexistant");
 
+            if(tupleEquipeA.getNomLigue() != tupleEquipeB.getNomLigue())
+                throw new IFT287Exception("Les deux equipes ne font pas partie de la même ligue.");
+
             // Ajout d'un resultat dans la table des livres
             resultats.ajouterResultat(nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB);
 

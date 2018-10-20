@@ -115,6 +115,16 @@ public class CentreSportif {
                 else if (command.equals("afficherEquipes")) {
                     gestionCentreSportif.getGestionEquipe().afficherEquipes();
                 }
+                else if (command.equals("ajouterResultat")) {
+                    String nomEquipeA = readString(tokenizer);
+                    int scoreEquipeA = readInt(tokenizer);
+                    String nomEquipeB = readString(tokenizer);
+                    int scoreEquipeB = readInt(tokenizer);
+                    gestionCentreSportif.getGestionResultat().ajouterResultat(nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB);
+                }
+                else if (command.equals("quitter")) {
+                    return;
+                }
                 else {
                     System.out.println(" : Transaction non reconnue");
                 }
