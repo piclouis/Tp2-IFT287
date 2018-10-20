@@ -55,7 +55,6 @@ public class GestionLigue {
         }
     }
 
-
     public void afficherLigue(String nomLigue) throws SQLException, IFT287Exception, Exception {
         try {
             if(!ligues.existe(nomLigue))
@@ -70,7 +69,7 @@ public class GestionLigue {
                 int nbDefaites = resultats.nbDefaites(equipe.getNomEquipe(), listResultats);
                 int nbPartieNulles = resultats.nbPartiesNulles(equipe.getNomEquipe(), listResultats);
 
-                System.out.printf("\nNom d'équipe: " + equipe.getNomLigue());
+                System.out.printf("\nNom d'équipe: " + equipe.getNomEquipe());
                 System.out.printf("\n  Nombre de victoires: " + nbVictoires);
                 System.out.printf("\n  Nombre de defaites: " + nbDefaites);
                 System.out.printf("\n  Nombre de parties nulles: " + nbPartieNulles);
