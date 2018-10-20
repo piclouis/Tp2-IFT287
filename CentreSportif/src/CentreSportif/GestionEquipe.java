@@ -57,6 +57,13 @@ public class GestionEquipe {
         }
     }
 
+    public void afficherEquipes() throws SQLException {
+        ArrayList<TupleEquipe> listEquipes = equipes.getEquipes();
+        System.out.println("");
+        for (TupleEquipe equipe : listEquipes)
+            System.out.println(equipe.toString());
+    }
+
     public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception, SQLException {
         try {
             // Vérifie si l'equipe existe déja

@@ -113,7 +113,7 @@ public class CentreSportif {
                     gestionCentreSportif.getGestionEquipe().ajouterEquipe(nomLigue, nomEquipe, matricule);
                 }
                 else if (command.equals("afficherEquipes")) {
-                    gestionCentreSportif.getGestionEquipe().afficherEquipe();
+                    gestionCentreSportif.getGestionEquipe().afficherEquipes();
                 }
                 else {
                     System.out.println(" : Transaction non reconnue");

@@ -37,4 +37,11 @@ public class TupleEquipe {
     public void setNomLigue(String nomLigue) {
         this.nomLigue = nomLigue;
     }
+
+    @Override
+    public String toString() {
+        return "Nom Ligue: '" + nomLigue +
+                "' | Nom Equipe: '" + nomEquipe +
+                "' | Matricule Capitaine: " + matriculeCapitaine;
+    }
 }

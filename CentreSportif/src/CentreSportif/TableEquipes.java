@@ -81,6 +81,20 @@ public class TableEquipes {
         return equipes;
     }
 
+    public ArrayList<TupleEquipe> getEquipes() throws SQLException {
+        ArrayList<TupleEquipe> equipes = new ArrayList<>();
+        ResultSet rset = stmtListeEquipesTriesLigue.executeQuery();
+
+        while(rset.next()) {
+            TupleEquipe tupleEquipe = new TupleEquipe();
+            tupleEquipe.setNomLigue(rset.getString(1));
+            tupleEquipe.setNomEquipe(rset.getString(2));
+            tupleEquipe.setMatriculeCapitaine(rset.getInt(3));
+            equipes.add(tupleEquipe);
+        }
+        return equipes;
+    }
+
     /**
      * Retourner la connexion associée.
      */
