@@ -86,6 +86,7 @@ public class TableParticipants {
 
             participants.add(tupleParticipant);
         }
+        rset.close();
         return participants;
     }
 

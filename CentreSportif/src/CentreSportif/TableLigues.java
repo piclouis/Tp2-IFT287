@@ -9,7 +9,6 @@ public class TableLigues {
 
     private PreparedStatement stmtExiste;
     private PreparedStatement stmtInsert;
-    private PreparedStatement stmtUpdate;
     private PreparedStatement stmtDelete;
 
     public TableLigues(Connexion cx) throws SQLException {
@@ -21,7 +20,6 @@ public class TableLigues {
                 .prepareStatement("insert into ligues (nomLigue, nbJoueurMaxParEquipe) "
                         + "values (?,?)");
         stmtDelete = cx.getConnection().prepareStatement("delete from ligues where nomLigue = ?");
-
     }
 
     public boolean existe(String nomLigue) throws SQLException {

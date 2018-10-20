@@ -24,7 +24,7 @@ public class TableResultats {
                 "select nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
                         + "from resultats where nomEquipeA = ? and nomEquipeB = ?");
         stmtResultatEquipe = cx.getConnection()
-                .prepareStatement("select idResultat, nomEquipeA, nomEquipeB, scoreEquipeA, scoreEquipeB "
+                .prepareStatement("select idResultat, nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB "
                         + "from resultats where nomEquipeA = ? OR nomEquipeB = ? ");
         stmtInsert = cx.getConnection()
                 .prepareStatement("insert into resultats (idResultat, nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB) "
@@ -69,6 +69,7 @@ public class TableResultats {
     public ArrayList<TupleResultat> getResultats(String nomEquipe) throws SQLException {
         ArrayList<TupleResultat> resultats = new ArrayList<>();
         stmtResultatEquipe.setString(1, nomEquipe);
+        stmtResultatEquipe.setString(2, nomEquipe);
         ResultSet rset = stmtResultatEquipe.executeQuery();
 
         while(rset.next()) {
@@ -76,13 +77,13 @@ public class TableResultats {
             tupleResultat.setIdResultat(rset.getInt(1));
             tupleResultat.setNomEquipeA(rset.getString(2));
             tupleResultat.setScoreEquipeA(rset.getInt(3));
-            tupleResultat.setNomEquipeA(rset.getString(4));
+            tupleResultat.setNomEquipeB(rset.getString(4));
             tupleResultat.setScoreEquipeB(rset.getInt(5));
 
-            rset.close();
-            return tupleResultat;
+            resultats.add(tupleResultat);
         }
-        resultats;
+        rset.close();
+        return resultats;
     }
 
     /**
@@ -93,6 +94,43 @@ public class TableResultats {
         return cx;
     }
 
+    public int nbVictoires(String nomEquipe, ArrayList<TupleResultat> listResultats) {
+        int cpt=0;
 
+        for(TupleResultat resultat: listResultats) {
+            if(resultat.getNomEquipeA().equals(nomEquipe) && resultat.getScoreEquipeA() > resultat.getScoreEquipeB())
+                cpt++;
+
+            if(resultat.getNomEquipeB().equals(nomEquipe) && resultat.getScoreEquipeB() > resultat.getScoreEquipeA())
+                cpt++;
+        }
+
+        return cpt;
+    }
+
+    public int nbDefaites(String nomEquipe, ArrayList<TupleResultat> listResultats) {
+        int cpt=0;
+
+        for(TupleResultat resultat: listResultats) {
+            if(resultat.getNomEquipeA().equals(nomEquipe) && resultat.getScoreEquipeA() < resultat.getScoreEquipeB())
+                cpt++;
+
+            if(resultat.getNomEquipeB().equals(nomEquipe) && resultat.getScoreEquipeB() < resultat.getScoreEquipeA())
+                cpt++;
+        }
+
+        return cpt;
+    }
+
+    public int nbPartiesNulles(String nomEquipe, ArrayList<TupleResultat> listResultats) {
+        int cpt=0;
+
+        for(TupleResultat resultat: listResultats)
+            if((resultat.getNomEquipeA().equals(nomEquipe) || resultat.getNomEquipeB().equals(nomEquipe)) &&
+                    resultat.getScoreEquipeA() == resultat.getScoreEquipeB())
+                cpt++;
+
+        return cpt;
+    }
 
 }

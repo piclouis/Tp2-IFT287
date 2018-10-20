@@ -78,6 +78,7 @@ public class TableEquipes {
             tupleEquipe.setMatriculeCapitaine(rset.getInt(3));
             equipes.add(tupleEquipe);
         }
+        rset.close();
         return equipes;
     }
 

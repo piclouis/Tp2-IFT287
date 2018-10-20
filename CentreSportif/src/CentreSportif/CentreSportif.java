@@ -122,6 +122,10 @@ public class CentreSportif {
                     int scoreEquipeB = readInt(tokenizer);
                     gestionCentreSportif.getGestionResultat().ajouterResultat(nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB);
                 }
+                else if (command.equals("afficherLigue")) {
+                    String nomLigue = readString(tokenizer);
+                    gestionCentreSportif.getGestionLigue().afficherLigue(nomLigue);
+                }
                 else if (command.equals("quitter")) {
                     return;
                 }
