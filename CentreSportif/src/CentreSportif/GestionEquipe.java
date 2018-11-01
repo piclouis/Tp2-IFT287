@@ -79,7 +79,7 @@ public class GestionEquipe {
 
             // Vérifie si la ligue existe
             if (!ligues.existe(nomLigue))
-                throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
+                throw new IFT287Exception("Ligue inexistante: " + nomLigue);
 
             // Verifie si le capitaine existe
             if (!participants.existe(matriculeCapitaine))

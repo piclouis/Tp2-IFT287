@@ -12,6 +12,8 @@ public class TableParticipants {
     private PreparedStatement stmtExiste;
     private PreparedStatement stmtInsert;
     private PreparedStatement stmtDelete;
+    private PreparedStatement stmtDeleteNomEquipe;
+    private PreparedStatement stmtUpdateNomEquipe;
     private PreparedStatement stmtgetJoueurEquipe;
 
     public TableParticipants(Connexion cx) throws SQLException {
@@ -23,6 +25,12 @@ public class TableParticipants {
                 .prepareStatement("insert into participants (matricule, nom, prenom, motDePasse, nomEquipe) "
                         + "values (?,?,?,?, null)");
         stmtDelete = cx.getConnection().prepareStatement("delete from participants where matricule = ?");
+
+        stmtUpdateNomEquipe = cx.getConnection()
+                .prepareStatement("update participants set nomEquipe = ? where matricule = ?");
+
+        stmtDeleteNomEquipe = cx.getConnection()
+                .prepareStatement("delete from participants where nomEquipe = ?");
 
         stmtgetJoueurEquipe = cx.getConnection().prepareStatement(
                 "select matricule, nom, prenom, motDePasse, nomEquipe from participants where nomEquipe = ?");
@@ -42,6 +50,7 @@ public class TableParticipants {
         return stmtDelete.executeUpdate();
     }
 
+
     public void inscrire(String prenom, String nom, String motDePasse, int matricule) throws SQLException {
         stmtInsert.setInt(1, matricule);
         stmtInsert.setString(2, prenom);
@@ -50,6 +59,21 @@ public class TableParticipants {
 
         stmtInsert.executeUpdate();
     }
+
+    public void ajouterEquipe(String nomEquipe, int matricule)throws SQLException{
+        stmtUpdateNomEquipe.setString(1, nomEquipe);
+        stmtUpdateNomEquipe.setInt(2, matricule);
+
+        stmtUpdateNomEquipe.executeUpdate();
+    }
+
+    public int supprimerEquipe(String nomEquipe,int matricule) throws SQLException {
+        stmtDeleteNomEquipe.setString(1, nomEquipe);
+        //stmtDeleteNomEquipe.setInt(2,matricule);
+
+        return stmtDeleteNomEquipe.executeUpdate();
+    }
+
 
     //Lecture d'un participant
 

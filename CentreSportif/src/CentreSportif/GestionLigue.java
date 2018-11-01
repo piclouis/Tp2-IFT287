@@ -25,7 +25,7 @@ public class GestionLigue {
     public void ajouterLigue(String nomLigue,int nbJoueurMaxParEquipe) throws SQLException, IFT287Exception, Exception {
         try {
             if(ligues.existe(nomLigue))
-                throw new IFT287Exception("Ligue " + nomLigue + " déjà existante");
+                throw new IFT287Exception("Ligue: " + nomLigue + " déjà existante");
 
             ligues.ajouter(nomLigue, nbJoueurMaxParEquipe);
 
