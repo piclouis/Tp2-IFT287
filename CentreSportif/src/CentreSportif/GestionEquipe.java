@@ -29,7 +29,7 @@ public class GestionEquipe {
             if (tupleEquipe == null)
                 throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
 
-            if(!participants.existe(tupleEquipe.getMatriculeCapitaine()))
+            if (!participants.existe(tupleEquipe.getMatriculeCapitaine()))
                 throw new IFT287Exception("Matricule inexistante: " + tupleEquipe.getMatriculeCapitaine());
 
             TupleParticipant capitaine = participants.getParticipant(tupleEquipe.getMatriculeCapitaine());
@@ -55,7 +55,7 @@ public class GestionEquipe {
             ArrayList<TupleResultat> listResultats = resultats.getResultats(nomEquipe);
 
             System.out.println("Liste des parties");
-            for (TupleResultat resultat: listResultats)
+            for (TupleResultat resultat : listResultats)
                 System.out.println(resultat.toString());
 
         } catch (Exception e) {
@@ -89,6 +89,60 @@ public class GestionEquipe {
             equipes.ajouter(nomLigue, nomEquipe, matriculeCapitaine);
 
             // Commit
+            cx.commit();
+        } catch (Exception e) {
+            cx.rollback();
+            throw e;
+        }
+    }
+
+    public void ajouterJoueur(String nomEquipe, int matricule) throws SQLException, IFT287Exception {
+        try {
+            if(!equipes.existe(nomEquipe))
+                throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
+
+            if(!participants.existe(matricule))
+                throw new IFT287Exception("Participant inexistant: " + matricule);
+
+
+
+            cx.commit();
+        } catch (Exception e) {
+            cx.rollback();
+            throw e;
+        }
+    }
+
+    public void accepterJoueur(String nomEquipe, int matricule) throws SQLException, IFT287Exception {
+        try {
+            if(!equipes.existe(nomEquipe))
+                throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
+
+            if(!participants.existe(matricule))
+                throw new IFT287Exception("Participant inexistant: " + matricule);
+
+            //Verifier si le nombre de joueur a atteint le maximum
+
+
+
+            cx.commit();
+        } catch (Exception e) {
+            cx.rollback();
+            throw e;
+        }
+    }
+
+    public void refuserJoueur(String nomEquipe, int matricule) throws SQLException, IFT287Exception {
+        try {
+            if(!equipes.existe(nomEquipe))
+                throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
+
+            if(!participants.existe(matricule))
+                throw new IFT287Exception("Participant inexistant: " + matricule);
+
+
+
+
             cx.commit();
         } catch (Exception e) {
             cx.rollback();

@@ -97,6 +97,8 @@ public class TableEquipes {
         return equipes;
     }
 
+
+
     /**
      * Retourner la connexion associée.
      */
