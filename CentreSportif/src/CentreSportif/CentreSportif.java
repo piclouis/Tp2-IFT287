@@ -122,6 +122,16 @@ public class CentreSportif {
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionParticipant().supprimerJoueur(nomEquipe, matricule);
                 }
+                else if (command.equals("accepterJoueur")) {
+                    String nomEquipe = readString(tokenizer);
+                    int matricule = readInt(tokenizer);
+                    gestionCentreSportif.getGestionParticipant().accepterJoueur(nomEquipe, matricule);
+                }
+                else if (command.equals("refuserJoueur")) {
+                    String nomEquipe = readString(tokenizer);
+                    int matricule = readInt(tokenizer);
+                    gestionCentreSportif.getGestionParticipant().refuserJoueur(nomEquipe, matricule);
+                }
                 else if (command.equals("afficherEquipes")) {
                     gestionCentreSportif.getGestionEquipe().afficherEquipes();
                 }

@@ -6,16 +6,19 @@ public class TupleParticipant {
     private String prenom;
     private String motDePasse;
     private String nomEquipe;
+    private int estAccepter;
+
 
     public TupleParticipant() {
     }
 
-    public TupleParticipant(int matricule, String nom, String prenom, String motDePasse, String nomEquipe) {
+    public TupleParticipant(int matricule, String nom, String prenom, String motDePasse, String nomEquipe, int estAccepter) {
         this.setMatricule(matricule);
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setMotDePasse(motDePasse);
         this.setNomEquipe(nomEquipe);
+        this.setEstAccepter(estAccepter);
     }
 
     public int getMatricule() {
@@ -57,6 +60,10 @@ public class TupleParticipant {
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
     }
+
+    public int getEstAccepter() { return estAccepter; }
+
+    public void setEstAccepter(int estAccepter) { this.estAccepter = estAccepter; }
 
     @Override
     public String toString() {

@@ -85,8 +85,10 @@ public class GestionEquipe {
             if (!participants.existe(matriculeCapitaine))
                 throw new IFT287Exception("Participant inexistant: " + matriculeCapitaine);
 
-            // Ajout d'un particpant.
+            // Ajout d'une equipe.
             equipes.ajouter(nomLigue, nomEquipe, matriculeCapitaine);
+            participants.ajouterEquipe(nomEquipe,matriculeCapitaine);
+            participants.accepterJoueur(nomEquipe,matriculeCapitaine);
 
             // Commit
             cx.commit();

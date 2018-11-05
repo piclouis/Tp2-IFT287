@@ -28,9 +28,11 @@ CREATE TABLE Participants (
 	nom	VARCHAR(255),
 	prenom VARCHAR(255),
 	motDePasse VARCHAR(60),
+	estAccepter INTEGER DEFAULT 0,
 	nomEquipe VARCHAR(255),
 	PRIMARY KEY (matricule),
 	FOREIGN KEY (nomEquipe) REFERENCES Equipes(nomEquipe)
 );
+
 
 
