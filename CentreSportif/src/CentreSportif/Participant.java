@@ -1,22 +1,38 @@
 package CentreSportif;
 
-public class TupleParticipant {
+import javax.persistence.*;
+
+@Entity
+public class Participant {
+    @Id
+    @GeneratedValue
+    private long m_id;
+
     private int matricule;
     private String nom;
     private String prenom;
     private String motDePasse;
     private String nomEquipe;
+    private int estAccepter;
 
-    public TupleParticipant() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Equipe equipe;
+
+    public Participant() {
     }
 
-    public TupleParticipant(int matricule, String nom, String prenom, String motDePasse, String nomEquipe) {
+    public Participant(String prenom, String nom, String motDePasse, int matricule) {
         this.setMatricule(matricule);
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setMotDePasse(motDePasse);
-        this.setNomEquipe(nomEquipe);
+        this.setNomEquipe(null);
+        this.setEstAccepter(0);
     }
+
+    public int getEstAccepter() { return estAccepter; }
+
+    public void setEstAccepter(int estAccepter) { this.estAccepter = estAccepter; }
 
     public int getMatricule() {
         return matricule;

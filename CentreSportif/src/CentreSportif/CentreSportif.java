@@ -133,17 +133,17 @@ public class CentreSportif {
                 else if (command.equals("ajouterJoueur")) {
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
-                    gestionCentreSportif.getGestionEquipe().ajouterJoueur(nomEquipe, matricule);
+                    gestionCentreSportif.getGestionParticipant().ajouterJoueur(nomEquipe, matricule);
                 }
                 else if (command.equals("accepterJoueur")) {
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
-                    gestionCentreSportif.getGestionEquipe().accepterJoueur(nomEquipe, matricule);
+                    gestionCentreSportif.getGestionParticipant().accepterJoueur(nomEquipe, matricule);
                 }
                 else if (command.equals("refuserJoueur")) {
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
-                    gestionCentreSportif.getGestionEquipe().refuserJoueur(nomEquipe, matricule);
+                    gestionCentreSportif.getGestionParticipant().refuserJoueur(nomEquipe, matricule);
                 }
                 else if (command.equals("quitter")) {
                     return;

@@ -4,10 +4,10 @@ import java.sql.SQLException;
 
 public class GestionCentreSportif {
     private Connexion cx;
-    private TableParticipants participants;
-    private TableEquipes equipes;
-    private TableLigues ligues;
-    private TableResultats resultats;
+    private Participants participants;
+    private Equipes equipes;
+    private Ligues ligues;
+    private Resultats resultats;
     private GestionParticipant gestionParticipant;
     private GestionEquipe gestionEquipe;
     private GestionLigue gestionLigue;
@@ -25,10 +25,10 @@ public class GestionCentreSportif {
     public GestionCentreSportif(String serveur, String bd, String user, String password)
             throws IFT287Exception, SQLException {
         cx = new Connexion(serveur, bd, user, password);
-        participants = new TableParticipants(cx);
-        equipes = new TableEquipes(cx);
-        ligues = new TableLigues(cx);
-        resultats = new TableResultats(cx);
+        participants = new Participants(cx);
+        equipes = new Equipes(cx);
+        ligues = new Ligues(cx);
+        resultats = new Resultats(cx);
 
         setGestionParticipant(new GestionParticipant(participants, equipes));
         setGestionEquipe(new GestionEquipe(ligues, equipes, participants, resultats));
