@@ -10,33 +10,36 @@ public class Participants {
     private Connexion cx;
 
     private TypedQuery<Participant> stmtExiste;
+
+    /*
     private TypedQuery<Participant> stmtUpdateNomEquipeNull;
     private TypedQuery<Participant> stmtUpdateNomEquipe;
     private TypedQuery<Participant> stmtUpdateAccepte;
-    private TypedQuery<Participant> stmtUpdateRefuser;
-    private TypedQuery<Participant> stmtgetJoueurEquipe;
+    */
+
+    private TypedQuery<Participant> stmtExisteEquipe;
+    private TypedQuery<Participant> stmtExisteJoueursEquipe;
 
 
     public Participants(Connexion cx) throws SQLException {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().createQuery(
-                "select matricule, nom, prenom, motDePasse, nomEquipe, estAccepte from participants where matricule = ?", Participant.class);
+                "select p from Participant p where p.matricule = :matricule", Participant.class);
 
-        stmtUpdateNomEquipe = cx.getConnection()
-                .createQuery("update participants set nomEquipe = ? where matricule = ?", Participant.class);
-
+        stmtExisteEquipe = cx.getConnection()
+                .createQuery("select p from Participant p where nomEquipe = :nomEquipe", Participant.class);
+/*
         stmtUpdateNomEquipeNull = cx.getConnection()
                 .createQuery("update participants set nomEquipe = ? where matricule = ?", Participant.class);
 
         stmtUpdateAccepte = cx.getConnection()
                 .createQuery("update participants set estAccepte = 1 where matricule = ?", Participant.class);
-
-        stmtUpdateRefuser = cx.getConnection()
-                .createQuery("update participants set estAccepte = 0 where matricule = ?", Participant.class);
-
-        stmtgetJoueurEquipe = cx.getConnection().createQuery(
+*/
+        stmtExisteJoueursEquipe = cx.getConnection().createQuery(
                 "select p from Participant p where nomEquipe = :nomEquipe and estAccepte = 1", Participant.class);
+
+
     }
 
     public boolean existe(int matricule) throws SQLException {
@@ -57,33 +60,32 @@ public class Participants {
         return participant;
     }
 
-    //TODO
-    public void ajouterEquipe(String nomEquipe, int matricule)throws SQLException{
-        stmtUpdateNomEquipe.setString(1, nomEquipe);
-        stmtUpdateNomEquipe.setInt(2, matricule);
 
-        stmtUpdateNomEquipe.executeUpdate();
+    public Participant ajouterEquipe(String nomEquipe)throws SQLException{
+        stmtExisteEquipe.setParameter("nomEquipe", nomEquipe);
+        return stmtExisteEquipe.getSingleResult();
     }
-    //TODO
-    public void supprimerEquipe(String nomEquipe,int matricule) throws SQLException {
-        stmtUpdateNomEquipeNull.setNull(1, matricule, nomEquipe);
-        stmtUpdateNomEquipeNull.setInt(2, matricule);
 
-        stmtUpdateNomEquipeNull.executeUpdate();
+
+    public Participant supprimerEquipe(Participant participant) throws SQLException {
+        if(participant.getNomEquipe() != null) {
+            participant.setNomEquipe(null);
+        }
+        return participant;
     }
-    //TODO
-    public void accepterJoueur(String nomEquipe,int matricule) throws SQLException{
-        //stmtUpdateAccepte.setString(1,nomEquipe);
-        stmtUpdateAccepte.setInt(1, matricule);
 
-        stmtUpdateAccepte.executeUpdate();
+    public Participant accepterJoueur(Participant participant) throws SQLException{
+        if(participant.getEstAccepter() == 0){
+            participant.setEstAccepter(1);
+        }
+        return participant;
     }
-    //TODO
-    public void refuserJoueur(String nomEquipe,int matricule) throws SQLException{
-        //stmtUpdateRefuser.setString(1,nomEquipe);
-        stmtUpdateRefuser.setInt(1, matricule);
 
-        stmtUpdateRefuser.executeUpdate();
+    public Participant refuserJoueur(Participant participant) throws SQLException{
+        if(participant.getEstAccepter() == 1){
+            participant.setEstAccepter(0);
+        }
+        return participant;
     }
 
     //Lecture d'un participant
@@ -99,8 +101,8 @@ public class Participants {
     }
 
     public List<Participant> getJoueursEquipe(String nomEquipe) throws SQLException {
-        stmtgetJoueurEquipe.setParameter("nomEquipe", nomEquipe);
-        List<Participant> participants = stmtgetJoueurEquipe.getResultList();
+        stmtExisteJoueursEquipe.setParameter("nomEquipe", nomEquipe);
+        List<Participant> participants = stmtExisteJoueursEquipe.getResultList();
         return participants;
     }
 

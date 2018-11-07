@@ -76,19 +76,18 @@ public class GestionParticipant {
     public void ajouterJoueur(String nomEquipe, int matricule ) throws SQLException, IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
-
-            Equipe tupleEquipe = equipes.getEquipe(nomEquipe);
-            if (tupleEquipe == null)
+            Equipe equipe = equipes.getEquipe(nomEquipe);
+            if (equipe == null)
                 throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
-            Participant tupleParticipant = participants.getParticipant(matricule);
-            if (tupleParticipant == null)
+            Participant participant = participants.getParticipant(matricule);
+            if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (tupleParticipant.getNomEquipe() != null)
-                throw new IFT287Exception("Le participant avec la matricule: " + matricule + " fait partie de l'équipe: " + tupleParticipant.getNomEquipe());
+            if (participant.getNomEquipe() != null)
+                throw new IFT287Exception("Le participant avec la matricule: " + matricule + " fait partie de l'équipe: " + participant.getNomEquipe());
 
             // ajout d'un joueur
-            participants.ajouterEquipe(nomEquipe, matricule);
+            participants.ajouterEquipe(nomEquipe);
 
             // Commit
             cx.commit();
@@ -104,19 +103,19 @@ public class GestionParticipant {
         try {
             cx.demarreTransaction();
 
-            Equipe tupleEquipe = equipes.getEquipe(nomEquipe);
-            if (tupleEquipe == null)
+            Equipe equipe = equipes.getEquipe(nomEquipe);
+            if (equipe == null)
                 throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
-            Participant tupleParticipant = participants.getParticipant(matricule);
-            if (tupleParticipant == null)
+            Participant participant = participants.getParticipant(matricule);
+            if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (tupleParticipant.getNomEquipe()== null )
+            if (participant.getNomEquipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
-            if (tupleParticipant.getMatricule() == tupleEquipe.getMatriculeCapitaine())
+            if (participant == equipe.getCapitaine() )
                 throw new IFT287Exception("le matricule est celui du capitaine: " + matricule);
 
-            participants.supprimerEquipe(nomEquipe, matricule);
+            participants.supprimerEquipe(participant);
 
             // Commit
             cx.commit();
@@ -130,20 +129,20 @@ public class GestionParticipant {
         try {
             cx.demarreTransaction();
 
-            Equipe tupleEquipe = equipes.getEquipe(nomEquipe);
-            if (tupleEquipe == null)
+            Equipe equipe = equipes.getEquipe(nomEquipe);
+            if (equipe == null)
                 throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
-            Participant tupleParticipant = participants.getParticipant(matricule);
-            if (tupleParticipant == null)
+            Participant participant = participants.getParticipant(matricule);
+            if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (tupleParticipant.getNomEquipe()== null )
+            if (participant.getNomEquipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
 
-            if(tupleParticipant.getEstAccepter() != 0)
+            if(participant.getEstAccepter() != 0)
                 throw new IFT287Exception("Participant: " + matricule + " deja accepte" );
 
-            participants.accepterJoueur(nomEquipe, matricule);
+            participants.accepterJoueur(participant);
 
             // Commit
             cx.commit();
@@ -157,23 +156,23 @@ public class GestionParticipant {
         try {
             cx.demarreTransaction();
 
-            Equipe tupleEquipe = equipes.getEquipe(nomEquipe);
-            if (tupleEquipe == null)
+            Equipe equipe = equipes.getEquipe(nomEquipe);
+            if (equipe == null)
                 throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
-            Participant tupleParticipant = participants.getParticipant(matricule);
-            if (tupleParticipant == null)
+            Participant participant = participants.getParticipant(matricule);
+            if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (tupleParticipant.getNomEquipe()== null )
+            if (participant.getNomEquipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
 
-            if (tupleParticipant.getMatricule() == tupleEquipe.getMatriculeCapitaine())
+            if (participant == equipe.getCapitaine())
                 throw new IFT287Exception("le matricule est celui du capitaine: " + matricule);
 
-            if(tupleParticipant.getEstAccepter() == 0)
+            if(participant.getEstAccepter() == 0)
                 throw new IFT287Exception("Participant: " + matricule + " deja refuse" );
 
-            participants.refuserJoueur(nomEquipe, matricule);
+            participants.refuserJoueur(participant);
 
             // Commit
             cx.commit();
