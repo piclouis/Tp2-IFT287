@@ -1,9 +1,6 @@
 package CentreSportif;
 
 import javax.persistence.TypedQuery;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Equipes {
@@ -13,7 +10,7 @@ public class Equipes {
     private TypedQuery<Equipe> stmtListeEquipesTriesLigue;    //  Liste des équipes trié par lignes
     private TypedQuery<Equipe> stmtListeEquipesLigue;        // Liste des équipes d'une ligue
 
-    public Equipes(Connexion cx) throws SQLException {
+    public Equipes(Connexion cx) {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().createQuery(
@@ -27,18 +24,18 @@ public class Equipes {
 
     }
 
-    public boolean existe(String nomEquipe) throws SQLException {
+    public boolean existe(String nomEquipe) {
         stmtExiste.setParameter("nomEquipe", nomEquipe);
         return !stmtExiste.getResultList().isEmpty();
     }
 
-    public Equipe ajouter(Equipe equipe) throws SQLException {
+    public Equipe ajouter(Equipe equipe) {
         cx.getConnection().persist(equipe);
         return equipe;
     }
 
     //Lecture d'une equipe
-    public Equipe getEquipe(String nomEquipe) throws SQLException {
+    public Equipe getEquipe(String nomEquipe) {
 
         stmtExiste.setParameter("nomEquipe", nomEquipe);
         List<Equipe> equipes = stmtExiste.getResultList();
@@ -50,12 +47,12 @@ public class Equipes {
         }
     }
 
-    public List<Equipe> getEquipes(String nomLigue) throws SQLException {
+    public List<Equipe> getEquipes(String nomLigue) {
         stmtListeEquipesLigue.setParameter("nomLigue", nomLigue);
         return stmtListeEquipesLigue.getResultList();
     }
 
-    public List<Equipe> getEquipes() throws SQLException {
+    public List<Equipe> getEquipes() {
         return stmtListeEquipesTriesLigue.getResultList();
     }
 

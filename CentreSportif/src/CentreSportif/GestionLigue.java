@@ -1,7 +1,5 @@
 package CentreSportif;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GestionLigue {
@@ -23,7 +21,7 @@ public class GestionLigue {
         this.ligues = ligues;
     }
 
-    public void ajouterLigue(String nomLigue,int nbJoueurMaxParEquipe) throws SQLException, IFT287Exception, Exception {
+    public void ajouterLigue(String nomLigue,int nbJoueurMaxParEquipe) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
@@ -41,7 +39,7 @@ public class GestionLigue {
         }
     }
 
-    public void supprimerLigue(String nomLigue) throws SQLException, IFT287Exception, Exception {
+    public void supprimerLigue(String nomLigue) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
@@ -63,7 +61,7 @@ public class GestionLigue {
     }
 
     //TODO
-    public void afficherLigue(String nomLigue) throws SQLException, IFT287Exception, Exception {
+    public void afficherLigue(String nomLigue) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 

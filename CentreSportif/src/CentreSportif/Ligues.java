@@ -1,26 +1,25 @@
 package CentreSportif;
 
 import javax.persistence.TypedQuery;
-import java.sql.SQLException;
 import java.util.List;
 
 public class Ligues {
     private Connexion cx;
     private TypedQuery<Ligue> stmtExiste;
 
-    public Ligues(Connexion cx) throws SQLException {
+    public Ligues(Connexion cx) {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().createQuery(
                 "select l from Ligue where l.nomLigue = :nomLigue", Ligue.class);
     }
 
-    public boolean existe(String nomLigue) throws SQLException {
+    public boolean existe(String nomLigue) {
         stmtExiste.setParameter("nomLigue", nomLigue);
         return !stmtExiste.getResultList().isEmpty();
     }
 
-    public boolean supprimer(Ligue ligue) throws SQLException {
+    public boolean supprimer(Ligue ligue) {
         if(ligue != null) {
             cx.getConnection().remove(ligue);
             return true;
@@ -28,14 +27,14 @@ public class Ligues {
         return false;
     }
 
-    public Ligue ajouter(Ligue ligue) throws SQLException {
+    public Ligue ajouter(Ligue ligue) {
         cx.getConnection().persist(ligue);
         return ligue;
     }
 
     //Lecture d'une ligue
 
-    public Ligue getLigue(String nomLigue) throws SQLException {
+    public Ligue getLigue(String nomLigue) {
         stmtExiste.setParameter("nomLigue", nomLigue);
         List<Ligue> ligues = stmtExiste.getResultList();
         if (!ligues.isEmpty())

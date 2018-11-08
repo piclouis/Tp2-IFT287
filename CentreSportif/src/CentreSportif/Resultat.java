@@ -1,10 +1,8 @@
 package CentreSportif;
 
-import javax.persistence.CascadeType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
+@Entity
 public class Resultat {
     @Id
     @GeneratedValue
@@ -21,7 +19,7 @@ public class Resultat {
     public Resultat() {
     }
 
-    public Resultat(String nomEquipeA, int scoreEquipeA, String nomEquipeB, int scoreEquipeB) {
+    public Resultat(Equipe equipeA, int scoreEquipeA,Equipe equipeB, int scoreEquipeB) {
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
         this.setEquipeA(equipeA);

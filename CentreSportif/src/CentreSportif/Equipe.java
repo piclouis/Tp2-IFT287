@@ -2,6 +2,7 @@ package CentreSportif;
 
 import javax.persistence.*;
 
+@Entity
 public class Equipe {
     @Id
     @GeneratedValue

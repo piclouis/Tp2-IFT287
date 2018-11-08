@@ -1,7 +1,5 @@
 package CentreSportif;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GestionEquipe {
@@ -23,7 +21,7 @@ public class GestionEquipe {
         this.ligues = ligues;
     }
 
-    public void afficherEquipe(String nomEquipe) throws SQLException, IFT287Exception {
+    public void afficherEquipe(String nomEquipe) throws IFT287Exception {
         try {
             cx.demarreTransaction();
 
@@ -67,7 +65,7 @@ public class GestionEquipe {
         }
     }
 
-    public void afficherEquipes() throws SQLException {
+    public void afficherEquipes() {
         List<Equipe> listEquipes = equipes.getEquipes();
         System.out.println("");
         for (Equipe equipe : listEquipes)
@@ -75,7 +73,7 @@ public class GestionEquipe {
     }
 
     //TODO
-    public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception, SQLException {
+    public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception {
         try {
             cx.demarreTransaction();
 

@@ -1,34 +1,28 @@
 package CentreSportif;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
+import CentreSportif.IFT287Exception;
+
+import javax.persistence.*;
+import java.util.*;
 
 /**
- * Gestionnaire d'une connexion avec une BD relationnelle via JDBC.<br><br>
- * 
- * Cette classe ouvre une connexion avec une BD via JDBC.<br>
- * La méthode serveursSupportes() indique les serveurs supportés.<br>
+ * Gestionnaire d'une connexion avec une BD Objet via ObjectDB.
+ *
  * <pre>
- * Pré-condition
- *   Le driver JDBC approprié doit être accessible.
- * 
- * Post-condition
- *   La connexion est ouverte en mode autocommit false et sérialisable, 
- *   (s'il est supporté par le serveur).
- * </pre>
- * <br>
+ *
+ * Vincent Ducharme
+ * Université de Sherbrooke
+ * Version 1.0 - 18 juin 2016
  * IFT287 - Exploitation de BD relationnelles et OO
- * 
- * @author Marc Frappier - Université de Sherbrooke
- * @version Version 2.0 - 13 novembre 2004
- * 
- * 
- * @author Vincent Ducharme - Université de Sherbrooke
- * @version Version 3.0 - 21 mai 2016
+ *
+ * Ce programme permet d'ouvrir une connexion avec une BD via ObjectDB.
+ *
+ * Pré-condition
+ *   La base de donnée ObjectDB doit être accessible.
+ *
+ * Post-condition
+ *   La connexion est ouverte.
+ * </pre>
  */
 public class Connexion
 {
@@ -36,16 +30,14 @@ public class Connexion
     private EntityManagerFactory emf;
 
     /**
-     * Ouverture d'une connexion en mode autocommit false et sérialisable (si
-     * supporté)
-     * 
-     * @param serveur Le type de serveur SQL à utiliser (Valeur : local, dinf).
-     * @param bd      Le nom de la base de données sur le serveur.
-     * @param user    Le nom d'utilisateur à utiliser pour se connecter à la base de données.
-     * @param pass    Le mot de passe associé à l'utilisateur.
+     * Ouverture d'une connexion
+     *
+     * @param serveur : Le type de serveur SQL à utiliser (Valeur : local, dinf).
+     * @param bd : nom de la base de données
+     * @param user : userid sur le serveur SQL
+     * @param pass : mot de passe sur le serveur SQL
      */
-    public Connexion(String serveur, String bd, String user, String pass)
-            throws IFT287Exception, SQLException
+    public Connexion(String serveur, String bd, String user, String pass) throws IFT287Exception
     {
         if (serveur.equals("local"))
         {
@@ -71,37 +63,13 @@ public class Connexion
     }
 
     /**
-     * Fermeture d'une connexion
+     * fermeture d'une connexion
      */
-    public void fermer() throws SQLException
+    public void fermer()
     {
         em.close();
         emf.close();
         System.out.println("Connexion fermée");
-    }
-
-    /**
-     * Commit
-     */
-    public void commit() throws SQLException
-    {
-        em.getTransaction().commit();
-    }
-
-    /**
-     * Rollback
-     */
-    public void rollback() throws SQLException
-    {
-        em.getTransaction().rollback();
-    }
-
-    /**
-     * Retourne la Connection JDBC
-     */
-    public EntityManager getConnection()
-    {
-        return em;
     }
 
     public void demarreTransaction()
@@ -110,12 +78,26 @@ public class Connexion
     }
 
     /**
-     * Retourne la liste des serveurs supportés par ce gestionnaire de
-     * connexions
+     * commit
      */
-    public static String serveursSupportes()
+    public void commit()
     {
-        return "local : PostgreSQL installé localement\n"
-             + "dinf  : PostgreSQL installé sur les serveurs du département\n";
+        em.getTransaction().commit();
     }
-}
+
+    /**
+     * rollback
+     */
+    public void rollback()
+    {
+        em.getTransaction().rollback();
+    }
+
+    /**
+     * retourne la Connection ObjectDB
+     */
+    public EntityManager getConnection()
+    {
+        return em;
+    }
+}// Classe Connexion

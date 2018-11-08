@@ -1,9 +1,6 @@
 package CentreSportif;
 
 import javax.persistence.TypedQuery;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Resultats {
@@ -14,7 +11,7 @@ public class Resultats {
     public Resultats() {
     }
 
-    public Resultats(Connexion cx) throws SQLException {
+    public Resultats(Connexion cx) {
         this.cx = cx;
         stmtResultatEquipe = cx.getConnection()
                 .createQuery("select r "
@@ -22,12 +19,12 @@ public class Resultats {
 
     }
 
-    public Resultat ajouterResultat(Resultat resultat) throws SQLException {
+    public Resultat ajouterResultat(Resultat resultat) {
         cx.getConnection().persist(resultat);
         return resultat;
     }
 
-    public List<Resultat> getResultats(String nomEquipe) throws SQLException {
+    public List<Resultat> getResultats(String nomEquipe) {
         stmtResultatEquipe.setParameter("nomEquipe", nomEquipe);
         List<Resultat> resultats = stmtResultatEquipe.getResultList();
         return resultats;

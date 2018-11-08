@@ -1,7 +1,5 @@
 package CentreSportif;
 
-import java.sql.SQLException;
-
 public class GestionCentreSportif {
     private Connexion cx;
     private Participants participants;
@@ -23,7 +21,7 @@ public class GestionCentreSportif {
      * @param password mot de passe pour le user id
      */
     public GestionCentreSportif(String serveur, String bd, String user, String password)
-            throws IFT287Exception, SQLException {
+            throws IFT287Exception{
         cx = new Connexion(serveur, bd, user, password);
         participants = new Participants(cx);
         equipes = new Equipes(cx);
@@ -34,10 +32,10 @@ public class GestionCentreSportif {
         setGestionEquipe(new GestionEquipe(ligues, equipes, participants, resultats));
         setGestionLigue(new GestionLigue(ligues, equipes, resultats));
         setGestionResultat(new GestionResultat(resultats, equipes));
-
+        getGestionParticipant().test();
     }
 
-    public void fermer() throws SQLException
+    public void fermer()
     {
         // Fermeture de la connexion
         cx.fermer();

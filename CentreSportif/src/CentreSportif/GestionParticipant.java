@@ -1,6 +1,6 @@
 package CentreSportif;
 
-import java.sql.*;
+import javax.persistence.TypedQuery;
 
 public class GestionParticipant {
     private Connexion cx;
@@ -23,7 +23,7 @@ public class GestionParticipant {
      * exception est levée.
      */
     public void inscrireParticipant(String prenom, String nom, String motDePasse, int matricule)
-            throws SQLException, IFT287Exception, Exception {
+            throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
@@ -46,7 +46,7 @@ public class GestionParticipant {
     /**
      * Suppression d'un partcipant de la base de données.
      */
-    public void supprimerParticipant(int matricule) throws SQLException, IFT287Exception, Exception {
+    public void supprimerParticipant(int matricule) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
@@ -69,11 +69,20 @@ public class GestionParticipant {
             throw e;
         }
     }
+    public  void test () {
+        cx.demarreTransaction();
+        TypedQuery<Participant> st = cx.getConnection().createQuery("select p from Participant p", Participant.class);
+        st.getResultList();
+        cx.commit();
+
+    }
+
+
     //TODO
     /**
      * Permettre à un particpant de s'inscrire dans une équipe.
      */
-    public void ajouterJoueur(String nomEquipe, int matricule ) throws SQLException, IFT287Exception, Exception {
+    public void ajouterJoueur(String nomEquipe, int matricule ) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
             Equipe equipe = equipes.getEquipe(nomEquipe);
@@ -99,7 +108,7 @@ public class GestionParticipant {
     /**
      * Permettre à un particpant de s'inscrire dans une équipe.
      */
-    public void supprimerJoueur(String nomEquipe, int matricule ) throws SQLException, IFT287Exception, Exception {
+    public void supprimerJoueur(String nomEquipe, int matricule ) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
@@ -125,7 +134,7 @@ public class GestionParticipant {
         }
     }
 
-    public void accepterJoueur(String nomEquipe, int matricule ) throws SQLException, IFT287Exception, Exception {
+    public void accepterJoueur(String nomEquipe, int matricule ) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
@@ -152,7 +161,7 @@ public class GestionParticipant {
         }
     }
 
-    public void refuserJoueur(String nomEquipe, int matricule ) throws SQLException, IFT287Exception, Exception {
+    public void refuserJoueur(String nomEquipe, int matricule ) throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
