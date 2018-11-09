@@ -17,10 +17,10 @@ public class Participants {
                 "select p from Participant p where p.matricule = :matricule", Participant.class);
 
         stmtExisteEquipe = cx.getConnection()
-                .createQuery("select p from Participant p where nomEquipe = :nomEquipe", Participant.class);
+                .createQuery("select p from Participant p where p.nomEquipe = :nomEquipe", Participant.class);
 
         stmtExisteJoueursEquipe = cx.getConnection().createQuery(
-                "select p from Participant p where nomEquipe = :nomEquipe and estAccepte = 1", Participant.class);
+                "select p from Participant p where p.nomEquipe = :nomEquipe and p.estAccepte = 1", Participant.class);
     }
 
     public boolean existe(int matricule) {
@@ -49,8 +49,8 @@ public class Participants {
 
 
     public Participant supprimerEquipe(Participant participant) {
-        if (participant.getNomEquipe() != null) {
-            participant.setNomEquipe(null);
+        if (participant.getEquipe() != null) {
+            participant.setEquipe(null);
         }
         return participant;
     }

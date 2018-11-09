@@ -12,7 +12,6 @@ public class Participant {
     private String nom;
     private String prenom;
     private String motDePasse;
-    private String nomEquipe;
     private int estAccepter;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -26,7 +25,6 @@ public class Participant {
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setMotDePasse(motDePasse);
-        this.setNomEquipe(null);
         this.setEstAccepter(0);
     }
 
@@ -58,12 +56,12 @@ public class Participant {
         this.prenom = prenom;
     }
 
-    public String getNomEquipe() {
-        return nomEquipe;
+    public Equipe getEquipe() {
+        return equipe;
     }
 
-    public void setNomEquipe(String nomEquipe) {
-        this.nomEquipe = nomEquipe;
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
     }
 
     public String getMotDePasse() {

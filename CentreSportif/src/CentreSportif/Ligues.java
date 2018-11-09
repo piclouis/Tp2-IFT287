@@ -11,7 +11,7 @@ public class Ligues {
         this.cx = cx;
 
         stmtExiste = cx.getConnection().createQuery(
-                "select l from Ligue where l.nomLigue = :nomLigue", Ligue.class);
+                "select l from Ligue l where l.nomLigue = :nomLigue", Ligue.class);
     }
 
     public boolean existe(String nomLigue) {

@@ -32,7 +32,7 @@ public class GestionCentreSportif {
         setGestionEquipe(new GestionEquipe(ligues, equipes, participants, resultats));
         setGestionLigue(new GestionLigue(ligues, equipes, resultats));
         setGestionResultat(new GestionResultat(resultats, equipes));
-        getGestionParticipant().test();
+        //getGestionParticipant().test();
     }
 
     public void fermer()

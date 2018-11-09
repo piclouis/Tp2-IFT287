@@ -20,7 +20,7 @@ public class Equipes {
                 "select e from Equipe e order by e.nomLigue", Equipe.class);
 
         stmtListeEquipesLigue = cx.getConnection().createQuery(
-                "select e from Equipe e where nomLigue = :nomLigue", Equipe.class);
+                "select e from Equipe e where e.nomLigue = :nomLigue", Equipe.class);
 
     }
 

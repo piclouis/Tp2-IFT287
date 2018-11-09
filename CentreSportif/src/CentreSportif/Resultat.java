@@ -10,10 +10,7 @@ public class Resultat {
 
     private int scoreEquipeA;
     private int scoreEquipeB;
-
-    @OneToOne(cascade = CascadeType.PERSIST)
     private Equipe equipeA;
-    @OneToOne(cascade = CascadeType.PERSIST)
     private Equipe equipeB;
 
     public Resultat() {

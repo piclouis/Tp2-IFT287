@@ -54,8 +54,8 @@ public class GestionParticipant {
             Participant participant = participants.getParticipant(matricule);
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
-            if (participant.getNomEquipe() != null)
-                throw new IFT287Exception("Le participant avec la matricule " + matricule + " fait partie de l'équipe " + participant.getNomEquipe());
+            if (participant.getEquipe() != null)
+                throw new IFT287Exception("Le participant avec la matricule " + matricule + " fait partie de l'équipe " + participant.getEquipe().getNomEquipe());
 
             // Suppression d'un participant
             boolean estSupprime = participants.supprimer(participant);
@@ -92,8 +92,8 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getNomEquipe() != null)
-                throw new IFT287Exception("Le participant avec la matricule: " + matricule + " fait partie de l'équipe: " + participant.getNomEquipe());
+            if (participant.getEquipe() != null)
+                throw new IFT287Exception("Le participant avec la matricule: " + matricule + " fait partie de l'équipe: " + participant.getEquipe().getNomEquipe());
 
             // ajout d'un joueur
             participants.ajouterEquipe(nomEquipe);
@@ -119,7 +119,7 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getNomEquipe()== null )
+            if (participant.getEquipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
             if (participant == equipe.getCapitaine() )
                 throw new IFT287Exception("le matricule est celui du capitaine: " + matricule);
@@ -145,7 +145,7 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getNomEquipe()== null )
+            if (participant.getEquipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
 
             if(participant.getEstAccepter() != 0)
@@ -172,7 +172,7 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getNomEquipe()== null )
+            if (participant.getEquipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
 
             if (participant == equipe.getCapitaine())
