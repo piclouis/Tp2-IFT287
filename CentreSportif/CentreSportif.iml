@@ -26,5 +26,6 @@
     <orderEntry type="library" name="objectdb" level="project" />
     <orderEntry type="library" name="objectdb" level="project" />
     <orderEntry type="library" name="CentreSportif" level="project" />
+    <orderEntry type="library" name="explorer" level="project" />
   </component>
 </module>
