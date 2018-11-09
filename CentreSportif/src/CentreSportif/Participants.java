@@ -61,9 +61,11 @@ public class Participants {
     }
 
 
-    public Participant ajouterEquipe(String nomEquipe)throws SQLException{
-        stmtExisteEquipe.setParameter("nomEquipe", nomEquipe);
-        return stmtExisteEquipe.getSingleResult();
+    public Participant ajouterEquipe(Participant participant, String nomEquipe)throws SQLException{
+        if(participant.getNomEquipe() == null){
+            participant.setNomEquipe(nomEquipe); // ca ou setNomEquipe(participant.getNomEquipe)
+        }
+        return participant;
     }
 
 
