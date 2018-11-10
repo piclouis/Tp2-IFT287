@@ -94,7 +94,7 @@ public class GestionEquipe {
             Equipe equipe = new Equipe(ligue, nomEquipe);
             Participant participant = participants.getParticipant(matriculeCapitaine);
             equipes.ajouter(equipe);
-            participants.ajouterEquipe(nomEquipe);
+            participants.ajouterEquipe(equipe, participant);
             participants.accepterJoueur(participant);
 
             // Commit

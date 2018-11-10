@@ -96,7 +96,7 @@ public class GestionParticipant {
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " fait partie de l'équipe: " + participant.getEquipe().getNomEquipe());
 
             // ajout d'un joueur
-            participants.ajouterEquipe(nomEquipe);
+            participants.ajouterEquipe(equipe, participant);
 
             // Commit
             cx.commit();

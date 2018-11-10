@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="explorer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/CentreSportif/explorer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -7,7 +7,6 @@ public class Participants {
     private Connexion cx;
 
     private TypedQuery<Participant> stmtExiste;
-    private TypedQuery<Participant> stmtExisteEquipe;
     private TypedQuery<Participant> stmtExisteJoueursEquipe;
 
     public Participants(Connexion cx) {
@@ -15,9 +14,6 @@ public class Participants {
 
         stmtExiste = cx.getConnection().createQuery(
                 "select p from Participant p where p.matricule = :matricule", Participant.class);
-
-        stmtExisteEquipe = cx.getConnection()
-                .createQuery("select p from Participant p where p.nomEquipe = :nomEquipe", Participant.class);
 
         stmtExisteJoueursEquipe = cx.getConnection().createQuery(
                 "select p from Participant p where p.nomEquipe = :nomEquipe and p.estAccepte = 1", Participant.class);
@@ -42,9 +38,12 @@ public class Participants {
     }
 
 
-    public Participant ajouterEquipe(String nomEquipe) {
-        stmtExisteEquipe.setParameter("nomEquipe", nomEquipe);
-        return stmtExisteEquipe.getSingleResult();
+    public Participant ajouterEquipe(Equipe equipe, Participant participant){
+        if(participant.getEquipe() == null){
+            participant.setEquipe(equipe);
+        }
+        return participant;
+
     }
 
 
