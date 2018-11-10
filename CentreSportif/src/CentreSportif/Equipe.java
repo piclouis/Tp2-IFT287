@@ -57,6 +57,14 @@ public class Equipe {
         return capitaine;
     }
 
+    public List<Participant> getParticipants() {
+        return participants;
+    }
+
+    public List<Resultat> getResultats() {
+        return resultats;
+    }
+
     public void setCapitaine(Participant capitaine) {
         this.capitaine = capitaine;
     }

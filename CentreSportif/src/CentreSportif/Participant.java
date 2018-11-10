@@ -12,7 +12,7 @@ public class Participant {
     private String nom;
     private String prenom;
     private String motDePasse;
-    private int estAccepter;
+    private int estAccepte;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Equipe p_equipe;
@@ -25,12 +25,12 @@ public class Participant {
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setMotDePasse(motDePasse);
-        this.setEstAccepter(0);
+        this.setEstAccepte(0);
     }
 
-    public int getEstAccepter() { return estAccepter; }
+    public int getEstAccepte() { return estAccepte; }
 
-    public void setEstAccepter(int estAccepter) { this.estAccepter = estAccepter; }
+    public void setEstAccepte(int estAccepte) { this.estAccepte = estAccepte; }
 
     public int getMatricule() {
         return matricule;

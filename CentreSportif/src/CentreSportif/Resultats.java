@@ -14,8 +14,7 @@ public class Resultats {
     public Resultats(Connexion cx) {
         this.cx = cx;
         stmtResultatEquipe = cx.getConnection()
-                .createQuery("select r "
-                        + "from Resultat r where r.equipeA.nomEquipe = :nomEquipeA OR r.equipeB.nomEquipe = :nomEquipe ", Resultat.class);
+                .createQuery("select r from Resultat r where r.equipeB.nomEquipe = :nomEquipe", Resultat.class);
 
     }
 

@@ -138,7 +138,7 @@ public class GestionParticipant {
             if (participant.getP_equipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
 
-            if(participant.getEstAccepter() != 0)
+            if(participant.getEstAccepte() != 0)
                 throw new IFT287Exception("Participant: " + matricule + " deja accepte" );
 
             participants.accepterJoueur(participant);
@@ -168,7 +168,7 @@ public class GestionParticipant {
             if (participant == equipe.getCapitaine())
                 throw new IFT287Exception("le matricule est celui du capitaine: " + matricule);
 
-            if(participant.getEstAccepter() == 0)
+            if(participant.getEstAccepte() == 0)
                 throw new IFT287Exception("Participant: " + matricule + " deja refuse" );
 
             participants.refuserJoueur(participant);

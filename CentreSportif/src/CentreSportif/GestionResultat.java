@@ -27,10 +27,10 @@ public class GestionResultat {
             // Verifie si les equipes existent
             Equipe equipeA = equipes.getEquipe(nomEquipeA);
             if(equipeA == null)
-                throw new IFT287Exception("Nom d'équipe A : " + nomEquipeA + "inexistant");
+                throw new IFT287Exception("Nom d'équipe A : " + nomEquipeA + " inexistant");
             Equipe equipeB = equipes.getEquipe(nomEquipeB);
             if(equipeB == null)
-                throw new IFT287Exception("Nom d'équipe B : " + nomEquipeB + "inexistant");
+                throw new IFT287Exception("Nom d'équipe B : " + nomEquipeB + " inexistant");
 
             if(!equipeA.getE_ligue().equals(equipeB.getE_ligue()))
                 throw new IFT287Exception("Les deux equipes ne font pas partie de la même ligue.");

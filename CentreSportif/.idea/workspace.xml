@@ -11,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/CentreSportif$CentreSportif.coverage" NAME="CentreSportif Coverage Results" MODIFIED="1541800984126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CentreSportif$CentreSportif.coverage" NAME="CentreSportif Coverage Results" MODIFIED="1541818474932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>CentreSportif.*</FILTER>
     </SUITE>
   </component>
@@ -19,81 +19,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CentreSportif.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CentreSportif/CentreSportif.java">
+          <file leaf-file-name="Resultat.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/CentreSportif/Resultat.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="173">
-                  <caret line="102" column="65" lean-forward="true" selection-start-line="102" selection-start-column="65" selection-end-line="102" selection-end-column="65" />
-                  <folding>
-                    <element signature="method#ouvrirFichier#0;class#CentreSportif#0" expanded="false" />
-                    <element signature="method#lireTransaction#0;class#CentreSportif#0" expanded="false" />
-                    <element signature="method#finTransaction#0;class#CentreSportif#0" expanded="false" />
-                    <element signature="method#readString#0;class#CentreSportif#0" expanded="false" />
-                    <element signature="method#readInt#0;class#CentreSportif#0" expanded="false" />
-                    <element signature="method#readDate#0;class#CentreSportif#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GestionLigue.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionLigue.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="241">
-                  <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+                <state relative-caret-position="708">
+                  <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Ligues.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CentreSportif/Ligues.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Participants.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CentreSportif/Participants.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Participant.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CentreSportif/Participant.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-272">
-                  <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Equipes.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CentreSportif/Equipes.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-                  <folding>
-                    <element signature="e#1714#1715#0" expanded="true" />
-                    <element signature="e#1779#1780#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Resultats.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Resultats.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CentreSportif/Resultats.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="227">
-                  <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+                <state relative-caret-position="-153">
+                  <caret line="16" column="70" lean-forward="false" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
                   <folding />
                 </state>
               </provider>
@@ -103,11 +43,26 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="CentreSportif.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Connexion.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/CentreSportif/Connexion.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="191">
+                  <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#1246#1262#0" expanded="true" />
+                    <element signature="e#2063#2064#0" expanded="true" />
+                    <element signature="e#2278#2279#0" expanded="true" />
+                    <element signature="e#2324#2325#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CentreSportif.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CentreSportif/CentreSportif.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="955">
-                  <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+                <state relative-caret-position="310">
+                  <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
                   <folding>
                     <element signature="method#ouvrirFichier#0;class#CentreSportif#0" expanded="false" />
                     <element signature="method#lireTransaction#0;class#CentreSportif#0" expanded="false" />
@@ -120,12 +75,37 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GestionParticipant.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionParticipant.java">
+          <file leaf-file-name="GestionEquipe.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionEquipe.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="462">
-                  <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+                <state relative-caret-position="360">
+                  <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Equipe.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/CentreSportif/Equipe.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="308">
+                  <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1017#1018#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GestionCentreSportif.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionCentreSportif.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="224">
+                  <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#1787#1788#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -168,20 +148,21 @@
         <option value="$PROJECT_DIR$/objectdb.jar!/com/objectdb/o/QRR.class" />
         <option value="$PROJECT_DIR$/objectdb.jar!/com/objectdb/o/QRD.class" />
         <option value="$PROJECT_DIR$/src/CentreSportif/Connexion.java" />
-        <option value="$PROJECT_DIR$/src/CentreSportif/GestionResultat.java" />
         <option value="$PROJECT_DIR$/objectdb.jar!/com/objectdb/jpa/Provider.class" />
         <option value="$PROJECT_DIR$/src/CentreSportif/Ligues.java" />
-        <option value="$PROJECT_DIR$/src/CentreSportif/Resultats.java" />
         <option value="$PROJECT_DIR$/src/CentreSportif/GestionCentreSportif.java" />
         <option value="$PROJECT_DIR$/src/CentreSportif/GestionParticipant.java" />
-        <option value="$PROJECT_DIR$/src/CentreSportif/CentreSportif.java" />
-        <option value="$PROJECT_DIR$/src/CentreSportif/GestionEquipe.java" />
-        <option value="$PROJECT_DIR$/src/CentreSportif/Participant.java" />
         <option value="$PROJECT_DIR$/src/CentreSportif/Resultat.java" />
         <option value="$PROJECT_DIR$/src/CentreSportif/Ligue.java" />
-        <option value="$PROJECT_DIR$/src/CentreSportif/Equipe.java" />
         <option value="$PROJECT_DIR$/src/CentreSportif/Participants.java" />
         <option value="$PROJECT_DIR$/src/CentreSportif/Equipes.java" />
+        <option value="$PROJECT_DIR$/src/CentreSportif/GestionResultat.java" />
+        <option value="$PROJECT_DIR$/src/CentreSportif/Participant.java" />
+        <option value="$PROJECT_DIR$/objectdb.jar!/com/objectdb/jpa/EMImpl.class" />
+        <option value="$PROJECT_DIR$/src/CentreSportif/Equipe.java" />
+        <option value="$PROJECT_DIR$/src/CentreSportif/CentreSportif.java" />
+        <option value="$PROJECT_DIR$/src/CentreSportif/GestionEquipe.java" />
+        <option value="$PROJECT_DIR$/src/CentreSportif/Resultats.java" />
       </list>
     </option>
   </component>
@@ -400,7 +381,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39534885" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39323467" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -456,12 +437,6 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CentreSportif/GestionResultat.java</url>
-          <line>34</line>
-          <properties />
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CentreSportif/GestionParticipant.java</url>
           <line>155</line>
           <properties />
@@ -469,7 +444,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CentreSportif/GestionEquipe.java</url>
-          <line>77</line>
+          <line>85</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
@@ -484,6 +459,18 @@
           <line>28</line>
           <properties />
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CentreSportif/CentreSportif.java</url>
+          <line>119</line>
+          <properties />
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CentreSportif/GestionEquipe.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/CentreSportif/GestionParticipant.java</url>
@@ -502,19 +489,11 @@
           <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="52" />
+      <option name="time" value="57" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionParticipant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CentreSportif/Participant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="733">
@@ -544,6 +523,10 @@
           <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1378#1379#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+            <element signature="e#1457#1458#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -764,64 +747,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionResultat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="34" column="60" lean-forward="false" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/objectdb.jar!/com/objectdb/jpa/Provider.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Connexion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#1246#1262#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionCentreSportif.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#1787#1788#0" expanded="true" />
-            <element signature="e#1982#1983#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionLigue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionEquipe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="94" column="80" lean-forward="false" selection-start-line="94" selection-start-column="80" selection-end-line="94" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Resultat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -837,44 +766,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Ligues.java">
+    <entry file="jar://$PROJECT_DIR$/objectdb.jar!/com/objectdb/jpa/JpaQuery.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Equipe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Participants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="215">
+          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionParticipant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="1751">
+          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/objectdb.jar!/com/objectdb/jpa/EMImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding>
+            <element signature="e#3895#3896#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Connexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <element signature="e#1246#1262#0" expanded="true" />
+            <element signature="e#2063#2064#0" expanded="true" />
+            <element signature="e#2278#2279#0" expanded="true" />
+            <element signature="e#2324#2325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionResultat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionLigue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Ligues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Participants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Participant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354">
+          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Equipes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+          <folding>
+            <element signature="e#1714#1715#0" expanded="true" />
+            <element signature="e#1779#1780#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionCentreSportif.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#1787#1788#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CentreSportif/CentreSportif.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="102" column="65" lean-forward="true" selection-start-line="102" selection-start-column="65" selection-end-line="102" selection-end-column="65" />
+        <state relative-caret-position="310">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
           <folding>
             <element signature="method#ouvrirFichier#0;class#CentreSportif#0" expanded="false" />
             <element signature="method#lireTransaction#0;class#CentreSportif#0" expanded="false" />
@@ -886,37 +881,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/objectdb.jar!/com/objectdb/jpa/JpaQuery.class">
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Resultats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state relative-caret-position="-153">
+          <caret line="16" column="70" lean-forward="false" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Participant.java">
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Resultat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        <state relative-caret-position="708">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Equipes.java">
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Equipe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        <state relative-caret-position="308">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#1714#1715#0" expanded="true" />
-            <element signature="e#1779#1780#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1017#1018#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CentreSportif/Resultats.java">
+    <entry file="file://$PROJECT_DIR$/src/CentreSportif/GestionEquipe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        <state relative-caret-position="360">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -56,15 +56,15 @@ public class Participants {
     }
 
     public Participant accepterJoueur(Participant participant) {
-        if (participant.getEstAccepter() == 0) {
-            participant.setEstAccepter(1);
+        if (participant.getEstAccepte() == 0) {
+            participant.setEstAccepte(1);
         }
         return participant;
     }
 
     public Participant refuserJoueur(Participant participant) {
-        if (participant.getEstAccepter() == 1) {
-            participant.setEstAccepter(0);
+        if (participant.getEstAccepte() == 1) {
+            participant.setEstAccepte(0);
         }
         return participant;
     }
