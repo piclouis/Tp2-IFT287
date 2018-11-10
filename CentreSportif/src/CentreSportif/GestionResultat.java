@@ -1,7 +1,5 @@
 package CentreSportif;
 
-import java.sql.*;
-
 public class GestionResultat {
     private Resultats resultats;
     private Equipes equipes;
@@ -22,7 +20,7 @@ public class GestionResultat {
      * exception est levée.
      */
     public void ajouterResultat(String nomEquipeA, int scoreEquipeA, String nomEquipeB, int scoreEquipeB)
-            throws SQLException, IFT287Exception, Exception {
+            throws IFT287Exception, Exception {
         try {
             cx.demarreTransaction();
 
@@ -34,11 +32,11 @@ public class GestionResultat {
             if(equipeB == null)
                 throw new IFT287Exception("Nom d'équipe B : " + nomEquipeB + "inexistant");
 
-            if(!equipeA.getNomLigue().equals(equipeB.getNomLigue()))
+            if(!equipeA.getLigue().equals(equipeB.getLigue()))
                 throw new IFT287Exception("Les deux equipes ne font pas partie de la même ligue.");
 
             // Ajout d'un resultat dans la table des livres
-            Resultat resultat = new Resultat(nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB);
+            Resultat resultat = new Resultat(equipeA, scoreEquipeA, equipeB, scoreEquipeB);
             resultats.ajouterResultat(resultat);
 
             // Commit

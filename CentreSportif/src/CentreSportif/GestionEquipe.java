@@ -1,7 +1,5 @@
 package CentreSportif;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GestionEquipe {
@@ -23,7 +21,7 @@ public class GestionEquipe {
         this.ligues = ligues;
     }
 
-    public void afficherEquipe(String nomEquipe) throws SQLException, IFT287Exception {
+    public void afficherEquipe(String nomEquipe) throws IFT287Exception {
         try {
             cx.demarreTransaction();
 
@@ -38,7 +36,7 @@ public class GestionEquipe {
             Participant capitaine = participants.getParticipant(equipe.getCapitaine().getMatricule());
 
             System.out.println("\nNom d'equipe : " + equipe.getNomEquipe() +
-                    "\nNom de ligue : " + equipe.getNomLigue() +
+                    "\nNom de ligue : " + equipe.getLigue().getNomLigue() +
                     "\nCapitaine : " + capitaine.getPrenom() + " " + capitaine.getNom());
             System.out.println();
             List<Participant> listParticipants = participants.getJoueursEquipe(nomEquipe);
@@ -67,7 +65,7 @@ public class GestionEquipe {
         }
     }
 
-    public void afficherEquipes() throws SQLException {
+    public void afficherEquipes() {
         List<Equipe> listEquipes = equipes.getEquipes();
         System.out.println("");
         for (Equipe equipe : listEquipes)
@@ -75,7 +73,7 @@ public class GestionEquipe {
     }
 
     //TODO
-    public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception, SQLException {
+    public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception {
         try {
             cx.demarreTransaction();
 
@@ -84,7 +82,8 @@ public class GestionEquipe {
                 throw new IFT287Exception("Equipe existe déjà: " + nomEquipe);
 
             // Vérifie si la ligue existe
-            if (!ligues.existe(nomLigue))
+            Ligue ligue = ligues.getLigue(nomLigue);
+            if (ligue == null)
                 throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
 
             // Verifie si le capitaine existe
@@ -92,10 +91,10 @@ public class GestionEquipe {
                 throw new IFT287Exception("Participant inexistant: " + matriculeCapitaine);
 
             // Ajout d'un equipe.
-            Equipe equipe = new Equipe(nomLigue, nomEquipe);
+            Equipe equipe = new Equipe(ligue, nomEquipe);
             Participant participant = participants.getParticipant(matriculeCapitaine);
             equipes.ajouter(equipe);
-            participants.ajouterEquipe(nomEquipe);
+            participants.ajouterEquipe(equipe, participant);
             participants.accepterJoueur(participant);
 
             // Commit

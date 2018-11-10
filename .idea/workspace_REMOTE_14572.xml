@@ -15,25 +15,12 @@
       <file leaf-file-name="CentreSportif.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/CentreSportif.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="235">
-=======
             <state relative-caret-position="1877">
->>>>>>> LPP
               <caret line="221" column="42" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Participants.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-=======
       <file leaf-file-name="Equipes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipes.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,19 +56,11 @@
               <folding>
                 <element signature="e#2983#2984#0" expanded="true" />
                 <element signature="e#3008#3009#0" expanded="true" />
->>>>>>> LPP
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Participant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="18" column="22" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="22" />
-=======
       <file leaf-file-name="GestionEquipe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionEquipe.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -126,7 +105,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
->>>>>>> LPP
             </state>
           </provider>
         </entry>
@@ -342,13 +320,8 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.32755905" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.38473767" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49848714" visible="true" weight="0.39933994" />
-=======
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.18811882" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49848714" weight="0.339934" />
->>>>>>> LPP
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18835099" />
@@ -358,13 +331,9 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
-<<<<<<< HEAD
-      <window_info active="true" anchor="bottom" id="SVN Repositories" order="8" sideWeight="0.49924356" visible="true" weight="0.32838285" />
-=======
       <window_info anchor="right" id="Palette" order="3" />
       <window_info active="true" anchor="bottom" id="SVN Repositories" order="8" sideWeight="0.49924356" visible="true" weight="0.32838285" />
       <window_info id="Designer" order="3" />
->>>>>>> LPP
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -373,8 +342,6 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18835099" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-<<<<<<< HEAD
-=======
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.38473767" />
@@ -384,14 +351,10 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
->>>>>>> LPP
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.32755905" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-<<<<<<< HEAD
-    </layout>
-=======
       <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49848714" visible="true" weight="0.39933994" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
       <window_info id="Favorites" order="5" side_tool="true" />
@@ -424,7 +387,6 @@
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
       <window_info id="Favorites" order="5" side_tool="true" />
     </layout-to-restore>
->>>>>>> LPP
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -473,17 +435,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/CentreSportif.java">
-<<<<<<< HEAD
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3757">
-          <caret line="221" column="42" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/TableParticipants.java" />
-    <entry file="file://$PROJECT_DIR$/CentreSportif/creation.sql">
-=======
->>>>>>> LPP
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3757">
           <caret line="221" column="42" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
@@ -727,38 +678,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-=======
-        <state relative-caret-position="61">
-          <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
->>>>>>> LPP
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/CentreSportif/explorer.jar!/com/objectdb/Explorer.class">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="102">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Connexion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+        <state relative-caret-position="61">
+          <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/CentreSportif.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="221" column="42" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
-=======
         <state relative-caret-position="1877">
           <caret line="221" column="42" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="42" />
         </state>
@@ -768,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="100" column="21" lean-forward="true" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="21" />
->>>>>>> LPP
         </state>
       </provider>
     </entry>
@@ -779,15 +706,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-=======
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -799,7 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
->>>>>>> LPP
         </state>
       </provider>
     </entry>

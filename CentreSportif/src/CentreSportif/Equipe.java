@@ -1,28 +1,34 @@
 package CentreSportif;
 
 import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
+@Entity
 public class Equipe {
     @Id
     @GeneratedValue
     private long m_id;
 
     private String nomEquipe;
-    private String nomLigue;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Ligue ligue;
-    @OneToOne (cascade=CascadeType.PERSIST)
     private Participant capitaine;
 
+    @OneToMany(mappedBy = "equipe")
+    private List<Participant> participants;
+
     public Equipe() {
+        this.participants = new LinkedList<Participant>();
     }
 
-    public Equipe(String nomLigue, String nomEquipe) {
-        this.setNomLigue(nomLigue);
-        this.setNomEquipe(nomEquipe);
+    public Equipe(Ligue ligue, String nomEquipe) {
+        this.setLigue(ligue);
+
         this.ligue = null;
         this.capitaine = null;
+        this.participants = new LinkedList<Participant>();
     }
 
     public String getNomEquipe() {
@@ -31,14 +37,6 @@ public class Equipe {
 
     public void setNomEquipe(String nomEquipe) {
         this.nomEquipe = nomEquipe;
-    }
-
-    public String getNomLigue() {
-        return nomLigue;
-    }
-
-    public void setNomLigue(String nomLigue) {
-        this.nomLigue = nomLigue;
     }
 
     public Ligue getLigue() {
@@ -59,7 +57,7 @@ public class Equipe {
 
     @Override
     public String toString() {
-        return "Nom Ligue: '" + nomLigue +
+        return "Nom Ligue: '" + ligue.getNomLigue() +
                 "' | Nom Equipe: '" + nomEquipe;
     }
 }
