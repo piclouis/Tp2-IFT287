@@ -49,23 +49,23 @@ public class Participants {
 
 
     public Participant supprimerEquipe(Participant participant) {
-        if (participant.getP_equipe() != null) {
-            participant.setP_equipe(null);
-        }
+
+        participant.setP_equipe(null);
+
         return participant;
     }
 
-    public Participant accepterJoueur(Participant participant) {
-        if (participant.getEstAccepte() == 0) {
-            participant.setEstAccepte(1);
-        }
+    public Participant accepterJoueur(Participant participant, Equipe equipe) {
+        participant.setEstAccepte(1);
+        equipe.ajouterJoueur(participant);
+
         return participant;
     }
 
-    public Participant refuserJoueur(Participant participant) {
-        if (participant.getEstAccepte() == 1) {
-            participant.setEstAccepte(0);
-        }
+    public Participant refuserJoueur(Participant participant, Equipe equipe) {
+        participant.setEstAccepte(0);
+        equipe.supprimerJoueur(participant);
+
         return participant;
     }
 

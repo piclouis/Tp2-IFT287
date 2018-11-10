@@ -15,13 +15,13 @@ public class GestionCentreSportif {
      * Ouvre une connexion avec la BD relationnelle et alloue les gestionnaires
      * de transactions et de tables.
      *
-     * @param serveur SQL
-     * @param bd nom de la bade de données
-     * @param user user id pour établir une connexion avec le serveur SQL
+     * @param serveur  SQL
+     * @param bd       nom de la bade de données
+     * @param user     user id pour établir une connexion avec le serveur SQL
      * @param password mot de passe pour le user id
      */
     public GestionCentreSportif(String serveur, String bd, String user, String password)
-            throws IFT287Exception{
+            throws IFT287Exception {
         cx = new Connexion(serveur, bd, user, password);
         participants = new Participants(cx);
         equipes = new Equipes(cx);
@@ -34,8 +34,7 @@ public class GestionCentreSportif {
         setGestionResultat(new GestionResultat(resultats, equipes));
     }
 
-    public void fermer()
-    {
+    public void fermer() {
         // Fermeture de la connexion
         cx.fermer();
     }

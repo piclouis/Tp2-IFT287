@@ -28,9 +28,13 @@ public class Participant {
         this.setEstAccepte(0);
     }
 
-    public int getEstAccepte() { return estAccepte; }
+    public int getEstAccepte() {
+        return estAccepte;
+    }
 
-    public void setEstAccepte(int estAccepte) { this.estAccepte = estAccepte; }
+    public void setEstAccepte(int estAccepte) {
+        this.estAccepte = estAccepte;
+    }
 
     public int getMatricule() {
         return matricule;

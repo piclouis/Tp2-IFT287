@@ -37,10 +37,6 @@ public class Ligue {
         this.nomLigue = nomLigue;
     }
 
-    public int getNbJoueurMaxParEquipe() {
-        return nbJoueurMaxParEquipe;
-    }
-
     public void setNbJoueurMaxParEquipe(int nbJoueurMaxParEquipe) {
         this.nbJoueurMaxParEquipe = nbJoueurMaxParEquipe;
     }

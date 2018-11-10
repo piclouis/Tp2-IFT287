@@ -20,7 +20,7 @@ public class Ligues {
     }
 
     public boolean supprimer(Ligue ligue) {
-        if(ligue != null) {
+        if (ligue != null) {
             cx.getConnection().remove(ligue);
             return true;
         }

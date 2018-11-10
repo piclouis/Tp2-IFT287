@@ -74,4 +74,12 @@ public class Equipe {
         return "Nom Ligue: '" + e_ligue.getNomLigue() +
                 "' | Nom Equipe: '" + nomEquipe;
     }
+
+    public void ajouterJoueur(Participant participant) {
+        participants.add(participant);
+    }
+
+    public void supprimerJoueur(Participant participant) {
+        participants.remove(participant);
+    }
 }

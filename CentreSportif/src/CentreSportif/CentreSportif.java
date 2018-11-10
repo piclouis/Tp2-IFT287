@@ -1,6 +1,6 @@
-// Travail fait par :
-//   Antoine Lazure - 14 098 870
-//   NomEquipier2 - Matricule
+/*Travail fait par :
+  Antoine Lazure - 14 098 870
+  Louis-Philip Picard- 17 064 935*/
 
 package CentreSportif;
 
@@ -49,7 +49,6 @@ public class CentreSportif {
         }
         GestionCentreSportif gestionCentreSportif = null;
 
-
         try {
             // Il est possible que vous ayez à déplacer la connexion ailleurs.
             // N'hésitez pas à le faire!
@@ -64,7 +63,7 @@ public class CentreSportif {
                 transaction = lireTransaction(reader);
             }
         } finally {
-            if(gestionCentreSportif != null)
+            if (gestionCentreSportif != null)
                 gestionCentreSportif.fermer();
         }
     }
@@ -92,63 +91,50 @@ public class CentreSportif {
                     gestionCentreSportif.getGestionParticipant().inscrireParticipant(prenom, nom, motDePasse, matricule);
 
                     // Appel de la methode des gestionnaires qui traite la transaction specifique
-                }
-                else if (command.equals("supprimerParticipant")) {
+                } else if (command.equals("supprimerParticipant")) {
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionParticipant().supprimerParticipant(matricule);
-                }
-                else if (command.equals("ajouterLigue")) {
+                } else if (command.equals("ajouterLigue")) {
                     String nomLigue = readString(tokenizer);
                     int nbJoueurMaxParEquipe = readInt(tokenizer);
                     gestionCentreSportif.getGestionLigue().ajouterLigue(nomLigue, nbJoueurMaxParEquipe);
-                }
-                else if (command.equals("supprimerLigue")) {
+                } else if (command.equals("supprimerLigue")) {
                     String nomLigue = readString(tokenizer);
                     gestionCentreSportif.getGestionLigue().supprimerLigue(nomLigue);
-                }
-                else if (command.equals("ajouterEquipe")) {
+                } else if (command.equals("ajouterEquipe")) {
                     String nomLigue = readString(tokenizer);
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionEquipe().ajouterEquipe(nomLigue, nomEquipe, matricule);
-                }
-                else if (command.equals("afficherEquipes")) {
+                } else if (command.equals("afficherEquipes")) {
                     gestionCentreSportif.getGestionEquipe().afficherEquipes();
-                }
-                else if (command.equals("afficherEquipe")) {
+                } else if (command.equals("afficherEquipe")) {
                     String nomEquipe = readString(tokenizer);
                     gestionCentreSportif.getGestionEquipe().afficherEquipe(nomEquipe);
-                }
-                else if (command.equals("afficherLigue")) {
+                } else if (command.equals("afficherLigue")) {
                     String nomLigue = readString(tokenizer);
                     gestionCentreSportif.getGestionLigue().afficherLigue(nomLigue);
-                }
-                else if (command.equals("ajouterResultat")) {
+                } else if (command.equals("ajouterResultat")) {
                     String nomEquipeA = readString(tokenizer);
                     int scoreEquipeA = readInt(tokenizer);
                     String nomEquipeB = readString(tokenizer);
                     int scoreEquipeB = readInt(tokenizer);
                     gestionCentreSportif.getGestionResultat().ajouterResultat(nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB);
-                }
-                else if (command.equals("ajouterJoueur")) {
+                } else if (command.equals("ajouterJoueur")) {
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionParticipant().ajouterJoueur(nomEquipe, matricule);
-                }
-                else if (command.equals("accepterJoueur")) {
+                } else if (command.equals("accepterJoueur")) {
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionParticipant().accepterJoueur(nomEquipe, matricule);
-                }
-                else if (command.equals("refuserJoueur")) {
+                } else if (command.equals("refuserJoueur")) {
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionParticipant().refuserJoueur(nomEquipe, matricule);
-                }
-                else if (command.equals("quitter")) {
+                } else if (command.equals("quitter")) {
                     return;
-                }
-                else {
+                } else {
                     System.out.println(" : Transaction non reconnue");
                 }
             }

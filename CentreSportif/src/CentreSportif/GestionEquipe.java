@@ -57,7 +57,7 @@ public class GestionEquipe {
             for (Resultat resultat : equipe.getResultats())
                 System.out.println(resultat.toString());
 
-            for(Resultat resultat : resultats.getResultats(equipe.getNomEquipe()))
+            for (Resultat resultat : resultats.getResultats(equipe.getNomEquipe()))
                 System.out.println(resultat.toString());
 
             cx.commit();
@@ -95,18 +95,18 @@ public class GestionEquipe {
                 throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
 
             // Verifie si le capitaine existe
-            Participant participant =  participants.getParticipant(matriculeCapitaine);
+            Participant participant = participants.getParticipant(matriculeCapitaine);
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matriculeCapitaine);
 
-            if(participant.getP_equipe() != null)
+            if (participant.getP_equipe() != null)
                 throw new IFT287Exception("Participant est deja dans une equipe.");
 
             // Ajout d'un equipe.
             Equipe equipe = new Equipe(ligue, nomEquipe, participant);
             equipes.ajouter(equipe);
             participants.ajouterEquipe(participant, equipe);
-            participants.accepterJoueur(participant);
+            participants.accepterJoueur(participant, equipe);
 
             // Commit
             cx.commit();

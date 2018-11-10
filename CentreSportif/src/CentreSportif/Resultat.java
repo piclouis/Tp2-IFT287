@@ -19,7 +19,7 @@ public class Resultat {
     public Resultat() {
     }
 
-    public Resultat(Equipe equipeA, int scoreEquipeA,Equipe equipeB, int scoreEquipeB) {
+    public Resultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
         this.setEquipeA(equipeA);
