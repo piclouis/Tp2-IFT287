@@ -10,13 +10,16 @@ public class Resultat {
 
     private int scoreEquipeA;
     private int scoreEquipeB;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Equipe equipeA;
+
     private Equipe equipeB;
 
     public Resultat() {
     }
 
-    public Resultat(Equipe equipeA, int scoreEquipeA,Equipe equipeB, int scoreEquipeB) {
+    public Resultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
         this.setEquipeA(equipeA);

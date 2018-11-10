@@ -17,10 +17,10 @@ public class Equipes {
                 "select e from Equipe e where e.nomEquipe = :nomEquipe", Equipe.class);
 
         stmtListeEquipesTriesLigue = cx.getConnection().createQuery(
-                "select e from Equipe e order by e.nomLigue", Equipe.class);
+                "select e from Equipe e order by e.e_ligue.nomLigue", Equipe.class);
 
         stmtListeEquipesLigue = cx.getConnection().createQuery(
-                "select e from Equipe e where e.nomLigue = :nomLigue", Equipe.class);
+                "select e from Equipe e where e.e_ligue.nomLigue = :nomLigue", Equipe.class);
 
     }
 
