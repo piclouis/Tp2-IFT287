@@ -36,7 +36,7 @@ public class GestionEquipe {
             Participant capitaine = participants.getParticipant(equipe.getCapitaine().getMatricule());
 
             System.out.println("\nNom d'equipe : " + equipe.getNomEquipe() +
-                    "\nNom de ligue : " + equipe.getLigue().getNomLigue() +
+                    "\nNom de ligue : " + equipe.getE_ligue().getNomLigue() +
                     "\nCapitaine : " + capitaine.getPrenom() + " " + capitaine.getNom());
             System.out.println();
             List<Participant> listParticipants = participants.getJoueursEquipe(nomEquipe);
@@ -87,14 +87,17 @@ public class GestionEquipe {
                 throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
 
             // Verifie si le capitaine existe
-            if (!participants.existe(matriculeCapitaine))
+            Participant participant =  participants.getParticipant(matriculeCapitaine);
+            if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matriculeCapitaine);
 
+            if(participant.getP_equipe() != null)
+                throw new IFT287Exception("Participant est deja dans une equipe.");
+
             // Ajout d'un equipe.
-            Equipe equipe = new Equipe(ligue, nomEquipe);
-            Participant participant = participants.getParticipant(matriculeCapitaine);
+            Equipe equipe = new Equipe(ligue, nomEquipe, participant);
             equipes.ajouter(equipe);
-            participants.ajouterEquipe(nomEquipe);
+            participants.ajouterEquipe(participant, equipe);
             participants.accepterJoueur(participant);
 
             // Commit

@@ -1,7 +1,5 @@
 package CentreSportif;
 
-import javax.persistence.TypedQuery;
-
 public class GestionParticipant {
     private Connexion cx;
     private Participants participants;
@@ -54,8 +52,8 @@ public class GestionParticipant {
             Participant participant = participants.getParticipant(matricule);
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
-            if (participant.getEquipe() != null)
-                throw new IFT287Exception("Le participant avec la matricule " + matricule + " fait partie de l'équipe " + participant.getEquipe().getNomEquipe());
+            if (participant.getP_equipe() != null)
+                throw new IFT287Exception("Le participant avec la matricule " + matricule + " fait partie de l'équipe " + participant.getP_equipe().getNomEquipe());
 
             // Suppression d'un participant
             boolean estSupprime = participants.supprimer(participant);
@@ -69,14 +67,6 @@ public class GestionParticipant {
             throw e;
         }
     }
-    public  void test () {
-        cx.demarreTransaction();
-        TypedQuery<Participant> st = cx.getConnection().createQuery("select p from Participant p", Participant.class);
-        st.getResultList();
-        cx.commit();
-
-    }
-
 
     //TODO
     /**
@@ -92,11 +82,11 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getEquipe() != null)
-                throw new IFT287Exception("Le participant avec la matricule: " + matricule + " fait partie de l'équipe: " + participant.getEquipe().getNomEquipe());
+            if (participant.getP_equipe() != null)
+                throw new IFT287Exception("Le participant avec la matricule: " + matricule + " fait partie de l'équipe: " + participant.getP_equipe().getNomEquipe());
 
             // ajout d'un joueur
-            participants.ajouterEquipe(nomEquipe);
+            participants.ajouterEquipe(participant, equipe);
 
             // Commit
             cx.commit();
@@ -119,7 +109,7 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getEquipe()== null )
+            if (participant.getP_equipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
             if (participant == equipe.getCapitaine() )
                 throw new IFT287Exception("le matricule est celui du capitaine: " + matricule);
@@ -145,7 +135,7 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getEquipe()== null )
+            if (participant.getP_equipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
 
             if(participant.getEstAccepter() != 0)
@@ -172,7 +162,7 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (participant.getEquipe()== null )
+            if (participant.getP_equipe()== null )
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);
 
             if (participant == equipe.getCapitaine())

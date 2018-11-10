@@ -15,7 +15,7 @@ public class Participant {
     private int estAccepter;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Equipe equipe;
+    private Equipe p_equipe;
 
     public Participant() {
     }
@@ -56,12 +56,12 @@ public class Participant {
         this.prenom = prenom;
     }
 
-    public Equipe getEquipe() {
-        return equipe;
+    public Equipe getP_equipe() {
+        return p_equipe;
     }
 
-    public void setEquipe(Equipe equipe) {
-        this.equipe = equipe;
+    public void setP_equipe(Equipe p_equipe) {
+        this.p_equipe = p_equipe;
     }
 
     public String getMotDePasse() {

@@ -10,7 +10,10 @@ public class Resultat {
 
     private int scoreEquipeA;
     private int scoreEquipeB;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Equipe equipeA;
+
     private Equipe equipeB;
 
     public Resultat() {
