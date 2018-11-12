@@ -16,7 +16,7 @@ public class Participants {
                 "select p from Participant p where p.matricule = :matricule", Participant.class);
 
         stmtExisteJoueursEquipe = cx.getConnection().createQuery(
-                "select p from Participant p where p.nomEquipe = :nomEquipe and p.estAccepte = 1", Participant.class);
+                "select p from Participant p where p.p_equipe.nomEquipe = :nomEquipe and p.estAccepte = 1", Participant.class);
     }
 
     public boolean existe(int matricule) {
@@ -38,32 +38,32 @@ public class Participants {
     }
 
 
-
     public Participant ajouterEquipe(Participant participant, Equipe equipe) {
-        if (participant.getEquipe() == null) {
-            participant.setEquipe(equipe);
+        if (participant.getP_equipe() == null) {
+            participant.setP_equipe(equipe);
         }
         return participant;
     }
+
 
     public Participant supprimerEquipe(Participant participant) {
-        if (participant.getEquipe() != null) {
-            participant.setEquipe(null);
-        }
+
+        participant.setP_equipe(null);
+
         return participant;
     }
 
-    public Participant accepterJoueur(Participant participant) {
-        if (participant.getEstAccepter() == 0) {
-            participant.setEstAccepter(1);
-        }
+    public Participant accepterJoueur(Participant participant, Equipe equipe) {
+        participant.setEstAccepte(1);
+        equipe.ajouterJoueur(participant);
+
         return participant;
     }
 
-    public Participant refuserJoueur(Participant participant) {
-        if (participant.getEstAccepter() == 1) {
-            participant.setEstAccepter(0);
-        }
+    public Participant refuserJoueur(Participant participant, Equipe equipe) {
+        participant.setEstAccepte(0);
+        equipe.supprimerJoueur(participant);
+
         return participant;
     }
 

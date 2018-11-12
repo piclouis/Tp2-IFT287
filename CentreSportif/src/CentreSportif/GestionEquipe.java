@@ -36,10 +36,10 @@ public class GestionEquipe {
             Participant capitaine = participants.getParticipant(equipe.getCapitaine().getMatricule());
 
             System.out.println("\nNom d'equipe : " + equipe.getNomEquipe() +
-                    "\nNom de ligue : " + equipe.getLigue().getNomLigue() +
+                    "\nNom de ligue : " + equipe.getE_ligue().getNomLigue() +
                     "\nCapitaine : " + capitaine.getPrenom() + " " + capitaine.getNom());
             System.out.println();
-            List<Participant> listParticipants = participants.getJoueursEquipe(nomEquipe);
+            List<Participant> listParticipants = equipe.getParticipants();
 
             if (listParticipants.isEmpty())
                 System.out.println("Aucun joueur");
@@ -53,12 +53,14 @@ public class GestionEquipe {
 
             System.out.println();
 
-            List<Resultat> listResultats = resultats.getResultats(nomEquipe);
-
             System.out.println("Liste des parties");
-            for (Resultat resultat : listResultats)
+            for (Resultat resultat : equipe.getResultats())
                 System.out.println(resultat.toString());
 
+            for (Resultat resultat : resultats.getResultats(equipe.getNomEquipe()))
+                System.out.println(resultat.toString());
+
+            cx.commit();
         } catch (Exception e) {
             cx.rollback();
             throw e;
@@ -66,13 +68,19 @@ public class GestionEquipe {
     }
 
     public void afficherEquipes() {
-        List<Equipe> listEquipes = equipes.getEquipes();
-        System.out.println("");
-        for (Equipe equipe : listEquipes)
-            System.out.println(equipe.toString());
+        try {
+            cx.demarreTransaction();
+            System.out.println();
+            for (Equipe equipe : equipes.getEquipes())
+                System.out.println(equipe.toString());
+            cx.commit();
+        } catch (Exception e) {
+            cx.rollback();
+            throw e;
+        }
+
     }
 
-    //TODO
     public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception {
         try {
             cx.demarreTransaction();
@@ -87,15 +95,19 @@ public class GestionEquipe {
                 throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
 
             // Verifie si le capitaine existe
-            if (!participants.existe(matriculeCapitaine))
+            Participant participant = participants.getParticipant(matriculeCapitaine);
+            if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matriculeCapitaine);
 
+            if (participant.getP_equipe() != null)
+                throw new IFT287Exception("Participant est deja dans une equipe.");
+
             // Ajout d'un equipe.
-            Equipe equipe = new Equipe(ligue, nomEquipe);
-            Participant participant = participants.getParticipant(matriculeCapitaine);
+            Equipe equipe = new Equipe(ligue, nomEquipe, participant);
             equipes.ajouter(equipe);
-            participants.ajouterEquipe(equipe, participant);
-            participants.accepterJoueur(participant);
+
+            participants.ajouterEquipe(participant, equipe);
+            participants.accepterJoueur(participant, equipe);
 
             // Commit
             cx.commit();

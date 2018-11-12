@@ -16,7 +16,7 @@ public class Ligue {
     private String nomLigue;
     private int nbJoueurMaxParEquipe;
 
-    @OneToMany(mappedBy = "ligue")
+    @OneToMany(mappedBy = "e_ligue")
     private List<Equipe> equipes;
 
     public Ligue() {
@@ -35,10 +35,6 @@ public class Ligue {
 
     public void setNomLigue(String nomLigue) {
         this.nomLigue = nomLigue;
-    }
-
-    public int getNbJoueurMaxParEquipe() {
-        return nbJoueurMaxParEquipe;
     }
 
     public void setNbJoueurMaxParEquipe(int nbJoueurMaxParEquipe) {
