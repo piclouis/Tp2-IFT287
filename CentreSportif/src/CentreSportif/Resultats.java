@@ -20,8 +20,10 @@ public class Resultats {
     public Connexion getConnexion() {
         return cx;
     }
-    public boolean ajouterResultat(Resultat idResultat) {
-        return resultatsCollection.find(eq("idResultat", idResultat)).first() != null;
+
+    public void ajouterResultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
+        Resultat r = new Resultat(equipeA, scoreEquipeA, equipeB, scoreEquipeB);
+        resultatsCollection.insertOne(r.toDocument());
     }
 
     public Resultat getResultats(int idResultat) {

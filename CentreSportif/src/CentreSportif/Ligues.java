@@ -1,17 +1,18 @@
 package CentreSportif;
 
-import javax.persistence.TypedQuery;
+import static com.mongodb.client.model.Filters.*;
 import java.util.List;
+import org.bson.Document;
+import com.mongodb.client.MongoCollection;
 
 public class Ligues {
+
     private Connexion cx;
-    private TypedQuery<Ligue> stmtExiste;
+    private MongoCollection<Document> liguesCollection;
 
     public Ligues(Connexion cx) {
         this.cx = cx;
-
-        stmtExiste = cx.getConnection().createQuery(
-                "select l from Ligue l where l.nomLigue = :nomLigue", Ligue.class);
+        liguesCollection = cx.getDatabase().getCollection("Ligues");
     }
 
     public Connexion getConnexion() {
@@ -19,32 +20,27 @@ public class Ligues {
     }
 
     public boolean existe(String nomLigue) {
-        stmtExiste.setParameter("nomLigue", nomLigue);
-        return !stmtExiste.getResultList().isEmpty();
+        return liguesCollection.find(eq("nomLigue", nomLigue)).first() != null;
     }
 
-    public boolean supprimer(Ligue ligue) {
-        if (ligue != null) {
-            cx.getConnection().remove(ligue);
-            return true;
-        }
-        return false;
+    public boolean supprimer(String nomLigue) {
+        return liguesCollection.deleteOne(eq("nomLigues", nomLigue)).getDeletedCount() > 0;
     }
 
-    public Ligue ajouter(Ligue ligue) {
-        cx.getConnection().persist(ligue);
-        return ligue;
+    public void ajouter(String nomLigue, int nbJoueurMaxParEquipe) {
+        Ligue l = new Ligue(nomLigue, nbJoueurMaxParEquipe);
+        liguesCollection.insertOne(l.toDocument());
     }
 
     //Lecture d'une ligue
 
     public Ligue getLigue(String nomLigue) {
-        stmtExiste.setParameter("nomLigue", nomLigue);
-        List<Ligue> ligues = stmtExiste.getResultList();
-        if (!ligues.isEmpty())
-            return ligues.get(0);
-        else
-            return null;
+        Document d = liguesCollection.find(eq("nomLigue", nomLigue)).first();
+        if(d != null)
+        {
+            return new Ligue(d);
+        }
+        return null;
 
     }
 

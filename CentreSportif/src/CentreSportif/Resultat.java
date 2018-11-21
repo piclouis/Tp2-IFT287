@@ -22,15 +22,14 @@ public class Resultat {
         idEquipe = d.getInteger("idEquipe");
     }
 
-    public Resultat(int idResultat, Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
-        this.setIdResultat(idResultat);
+    public Resultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
         this.setEquipeA(equipeA);
         this.setEquipeB(equipeB);
     }
 
-    public long getIdResultat() { return idResultat; }
+    public int getIdResultat() { return idResultat; }
 
     public void setIdResultat(int idResultat) { this.idResultat = idResultat; }
 
@@ -49,7 +48,7 @@ public class Resultat {
     public void setScoreEquipeB(int scoreEquipeB) {
         this.scoreEquipeB = scoreEquipeB;
     }
-
+// not sure
     public Equipe getEquipeA() {
         return equipeA;
     }
@@ -65,15 +64,15 @@ public class Resultat {
     public void setEquipeB(Equipe equipeB) {
         this.equipeB = equipeB;
     }
-
-    public String toString() {
+//
+    public String toString() {    // à refaire
         return "Partie " + idResultat +
                 "\n  Equipe " + equipeA.getNomEquipe() + ": " + scoreEquipeA + " points\n" +
                 "  Equipe " + equipeB.getNomEquipe() + ": " + scoreEquipeB + " points ";
     }
     public Document toDocument()
     {
-        return new Document().append("idResultat", idResultat)
+        return new Document().append("idResultat", idResultat) //*
                 .append("EquipeA", equipeA)
                 .append("scoreEquipeA", scoreEquipeA)
                 .append("EquipeB", equipeB)

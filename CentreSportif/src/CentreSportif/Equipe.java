@@ -1,40 +1,36 @@
 package CentreSportif;
 
-import javax.persistence.*;
-import java.util.LinkedList;
-import java.util.List;
 
-@Entity
+import org.bson.Document;
+
 public class Equipe {
-    @Id
-    @GeneratedValue
-    private long m_id;
 
+    private int idEquipe;
     private String nomEquipe;
+    private int capitaine;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Ligue e_ligue;
-    private Participant capitaine;
-
-    @OneToMany(mappedBy = "p_equipe")
-    private List<Participant> participants;
-
-    @OneToMany(mappedBy = "equipeA")
-    private List<Resultat> resultats;
+    private String nomLigue;
+    private int matricule;
+    private int idResultats;
 
     public Equipe() {
-        this.participants = new LinkedList<Participant>();
-        this.resultats = new LinkedList<Resultat>();
     }
 
-    public Equipe(Ligue ligue, String nomEquipe, Participant participant) {
-        this.setE_ligue(ligue);
+    public Equipe(Document d)
+    {
+        nomEquipe = d.getString("nomEquipe");
+        nomLigue = d.getString("nomLigue");
+        capitaine = d.getInteger("capitaine");
+        matricule = d.getInteger("matricule");
+        idResultats = d.getInteger("idResultat");
 
-        this.e_ligue = ligue;
+    }
+
+    public Equipe(String nomEquipe, int capitaine, String nomLigue) {
+
+        this.nomLigue = nomLigue;
         this.nomEquipe = nomEquipe;
-        this.capitaine = participant;
-        this.participants = new LinkedList<Participant>();
-        this.resultats = new LinkedList<Resultat>();
+        this.capitaine = capitaine;
     }
 
     public String getNomEquipe() {
@@ -45,41 +41,39 @@ public class Equipe {
         this.nomEquipe = nomEquipe;
     }
 
-    public Ligue getE_ligue() {
-        return e_ligue;
+    public String getNomLigue() {
+        return nomLigue;
     }
 
-    public void setE_ligue(Ligue e_ligue) {
-        this.e_ligue = e_ligue;
-    }
+    public void setNomLigue(String nomLigue) { this.nomLigue = nomLigue; }
 
-    public Participant getCapitaine() {
+    public int getCapitaine() {
         return capitaine;
     }
 
-    public List<Participant> getParticipants() {
-        return participants;
-    }
+    public int getMatricule() { return matricule; }
 
-    public List<Resultat> getResultats() {
-        return resultats;
-    }
+    public int getIdResultats() { return idResultats; }
 
-    public void setCapitaine(Participant capitaine) {
-        this.capitaine = capitaine;
-    }
-
-    @Override
-    public String toString() {
-        return "Nom Ligue: '" + e_ligue.getNomLigue() +
+    public String toString() {      // à refaire
+        return "Nom Ligue: '" + nomLigue +
                 "' | Nom Equipe: '" + nomEquipe;
     }
 
-    public void ajouterJoueur(Participant participant) {
-        participants.add(participant);
+    public void ajouterJoueur() {
+        matricule++;
     }
 
-    public void supprimerJoueur(Participant participant) {
-        participants.remove(participant);
+    public void supprimerJoueur() {
+        matricule--;
+    }
+
+    public Document toDocument()
+    {
+        return new Document().append("nomLigue", nomLigue)
+                .append("nomEquipe", nomEquipe)
+                .append("capitaine", capitaine)
+                .append("matricule", matricule)
+                .append("idResultat", idResultats);
     }
 }

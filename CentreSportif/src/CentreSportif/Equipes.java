@@ -1,59 +1,17 @@
 package CentreSportif;
 
-import javax.persistence.TypedQuery;
+import static com.mongodb.client.model.Filters.*;
 import java.util.List;
+import org.bson.Document;
+import com.mongodb.client.MongoCollection;
 
 public class Equipes {
     private Connexion cx;
-
-    private TypedQuery<Equipe> stmtExiste;
-    private TypedQuery<Equipe> stmtListeEquipesTriesLigue;    //  Liste des équipes trié par lignes
-    private TypedQuery<Equipe> stmtListeEquipesLigue;        // Liste des équipes d'une ligue
+    private MongoCollection<Document> equipesCollection;
 
     public Equipes(Connexion cx) {
         this.cx = cx;
-
-        stmtExiste = cx.getConnection().createQuery(
-                "select e from Equipe e where e.nomEquipe = :nomEquipe", Equipe.class);
-
-        stmtListeEquipesTriesLigue = cx.getConnection().createQuery(
-                "select e from Equipe e order by e.e_ligue.nomLigue", Equipe.class);
-
-        stmtListeEquipesLigue = cx.getConnection().createQuery(
-                "select e from Equipe e where e.e_ligue.nomLigue = :nomLigue", Equipe.class);
-
-    }
-
-    public boolean existe(String nomEquipe) {
-        stmtExiste.setParameter("nomEquipe", nomEquipe);
-        return !stmtExiste.getResultList().isEmpty();
-    }
-
-    public Equipe ajouter(Equipe equipe) {
-        cx.getConnection().persist(equipe);
-        return equipe;
-    }
-
-    //Lecture d'une equipe
-    public Equipe getEquipe(String nomEquipe) {
-
-        stmtExiste.setParameter("nomEquipe", nomEquipe);
-        List<Equipe> equipes = stmtExiste.getResultList();
-
-        if (!equipes.isEmpty()) {
-            return equipes.get(0);
-        } else {
-            return null;
-        }
-    }
-
-    public List<Equipe> getEquipes(String nomLigue) {
-        stmtListeEquipesLigue.setParameter("nomLigue", nomLigue);
-        return stmtListeEquipesLigue.getResultList();
-    }
-
-    public List<Equipe> getEquipes() {
-        return stmtListeEquipesTriesLigue.getResultList();
+        equipesCollection = cx.getDatabase().getCollection("Equipes");
     }
 
     /**
@@ -63,4 +21,33 @@ public class Equipes {
         return cx;
     }
 
+    public boolean existe(String nomEquipe) {
+        return equipesCollection.find(eq("nomEquipe", nomEquipe)).first() != null;
+    }
+
+    public void ajouter(String nomLigue, String nomEquipe, int capitaine) {
+        Equipe e = new Equipe(nomEquipe, capitaine, nomLigue);
+        equipesCollection.insertOne(e.toDocument());
+    }
+
+    //Lecture d'une equipe
+    public Equipe getEquipe(String nomEquipe) {
+
+        Document d = equipesCollection.find(eq("nomEquipe", nomEquipe)).first();
+        if(d != null)
+        {
+            return new Equipe(d);
+        }
+        return null;
+    }
+/*
+    public List<Equipe> getEquipes(String nomLigue) {
+        stmtListeEquipesLigue.setParameter("nomLigue", nomLigue);
+        return stmtListeEquipesLigue.getResultList();
+    }
+
+    public List<Equipe> getEquipes() {
+        return stmtListeEquipesTriesLigue.getResultList();
+    }
+*/
 }

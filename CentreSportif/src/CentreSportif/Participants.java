@@ -81,9 +81,5 @@ public class Participants {
         List<Participant> participants = stmtExisteJoueursEquipe.getResultList();
         return participants;
     }
-
-    /**
-     * Retourner la connexion associée.
-     */
-
+*/
 }

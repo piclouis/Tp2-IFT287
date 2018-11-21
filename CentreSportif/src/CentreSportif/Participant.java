@@ -78,19 +78,19 @@ public class Participant {
     }
 
 
-    public String toString() {
+    public String toString() {     //à refaire
         return "  Matricule: " + matricule +
                 "\n  Nom: " + nom +
                 "\n  Prenom: " + prenom;
     }
 
-    public Document toDocument()
+    public Document toDocument() // dois je inclure le idParticipant
     {
         return new Document().append("matricule", matricule)
                 .append("nom", nom)
                 .append("prenom", prenom)
                 .append("motDePasse", motDePasse)
                 .append("estAccepte", estAccepte)
-                .append("equipe", nomEquipe);
+                .append("nomEquipe", nomEquipe);
     }
 }
