@@ -105,13 +105,10 @@ public class GestionEquipe {
             // Ajout d'un equipe.
             Equipe equipe = new Equipe(ligue, nomEquipe, participant);
             equipes.ajouter(equipe);
-<<<<<<< HEAD
-            participants.ajouterEquipe(equipe, participant);
-            participants.accepterJoueur(participant);
-=======
+
             participants.ajouterEquipe(participant, equipe);
             participants.accepterJoueur(participant, equipe);
->>>>>>> 0a12707180480491953473a2394775fa28e724cb
+
 
             // Commit
             cx.commit();

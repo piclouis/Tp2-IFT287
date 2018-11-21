@@ -1,11 +1,11 @@
 package CentreSportif;
 
-import javax.persistence.*;
-import java.util.*;
+import com.mongodb.*;
+import com.mongodb.client.MongoDatabase;
 
 /**
- * Gestionnaire d'une connexion avec une BD Objet via ObjectDB.
- * <p>
+ * Gestionnaire d'une connexion avec une BD NoSQL via MongoDB.
+ *
  * <pre>
  *
  * Vincent Ducharme
@@ -13,77 +13,74 @@ import java.util.*;
  * Version 1.0 - 18 juin 2016
  * IFT287 - Exploitation de BD relationnelles et OO
  *
- * Ce programme permet d'ouvrir une connexion avec une BD via ObjectDB.
+ * Ce programme permet d'ouvrir une connexion avec une BD via MongoDB.
  *
- * Pré-condition
- *   La base de donnée ObjectDB doit être accessible.
+ * Pre-condition
+ *   La base de données MongoDB doit etre accessible.
  *
  * Post-condition
  *   La connexion est ouverte.
  * </pre>
  */
-public class Connexion {
-    private EntityManager em;
-    private EntityManagerFactory emf;
+public class Connexion
+{
+    private MongoClient client;
+    private MongoDatabase database;
 
     /**
      * Ouverture d'une connexion
      *
-     * @param serveur : Le type de serveur SQL à utiliser (Valeur : local, dinf).
-     * @param bd      : nom de la base de données
-     * @param user    : userid sur le serveur SQL
-     * @param pass    : mot de passe sur le serveur SQL
+     * @serveur serveur à utiliser (local ou dinf)
+     * @bd nom de la base de données
+     * @user userid sur le serveur MongoDB pour la BD specifiée
+     * @pass mot de passe sur le serveur MongoDB pour la BD specifiée
      */
-    public Connexion(String serveur, String bd, String user, String pass) throws IFT287Exception {
-        if (serveur.equals("local")) {
-            emf = Persistence.createEntityManagerFactory(bd);
-        } else if (serveur.equals("dinf")) {
-            Map<String, String> properties = new HashMap<String, String>();
-            properties.put("javax.persistence.jdbc.user", user);
-            properties.put("javax.persistence.jdbc.password", pass);
-            emf = Persistence.createEntityManagerFactory("objectdb://bd-info2.dinf.usherbrooke.ca:6136/" + user + "/" + bd, properties);
-        } else {
+    public Connexion(String serveur, String bd, String user, String pass) throws IFT287Exception
+    {
+        if (serveur.equals("local"))
+        {
+            client = new MongoClient();
+        }
+        else if (serveur.equals("dinf"))
+        {
+            MongoClientURI uri = new MongoClientURI("mongodb://"+user+":"+pass+"@bd-info2.dinf.usherbrooke.ca:27017/"+bd+"?ssl=false");
+            client = new MongoClient(uri);
+        }
+        else
+        {
             throw new IFT287Exception("Serveur inconnu");
         }
 
-        em = emf.createEntityManager();
+        database = client.getDatabase(bd);
 
         System.out.println("Ouverture de la connexion :\n"
-                + "Connecté sur la BD ObjectDB "
+                + "Connecté sur la BD MongoDB "
                 + bd + " avec l'utilisateur " + user);
     }
 
     /**
      * fermeture d'une connexion
      */
-    public void fermer() {
-        em.close();
-        emf.close();
+    public void fermer()
+    {
+        client.close();
         System.out.println("Connexion fermée");
     }
 
-    public void demarreTransaction() {
-        em.getTransaction().begin();
+
+    /**
+     * retourne la Connection MongoDB
+     */
+    public MongoClient getConnection()
+    {
+        return client;
     }
 
     /**
-     * commit
+     * retourne la DataBase MongoDB
      */
-    public void commit() {
-        em.getTransaction().commit();
-    }
-
-    /**
-     * rollback
-     */
-    public void rollback() {
-        em.getTransaction().rollback();
-    }
-
-    /**
-     * retourne la Connection ObjectDB
-     */
-    public EntityManager getConnection() {
-        return em;
+    public MongoDatabase getDatabase()
+    {
+        return database;
     }
 }// Classe Connexion

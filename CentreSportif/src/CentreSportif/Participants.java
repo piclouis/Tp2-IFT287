@@ -1,61 +1,45 @@
 package CentreSportif;
 
-import javax.persistence.TypedQuery;
+import static com.mongodb.client.model.Filters.*;
 import java.util.List;
+import org.bson.Document;
+import com.mongodb.client.MongoCollection;
+
 
 public class Participants {
-    private Connexion cx;
 
-    private TypedQuery<Participant> stmtExiste;
-    private TypedQuery<Participant> stmtExisteJoueursEquipe;
+    private MongoCollection<Document> participantsCollection;
+    private Connexion cx;
 
     public Participants(Connexion cx) {
         this.cx = cx;
+        participantsCollection = cx.getDatabase().getCollection("Participants");
 
-        stmtExiste = cx.getConnection().createQuery(
-                "select p from Participant p where p.matricule = :matricule", Participant.class);
-
-<<<<<<< HEAD
-=======
-        stmtExisteEquipe = cx.getConnection()
-                .createQuery("select p from Participant p where p.p_equipe.nomEquipe = :nomEquipe", Participant.class);
-
->>>>>>> 0a12707180480491953473a2394775fa28e724cb
-        stmtExisteJoueursEquipe = cx.getConnection().createQuery(
-                "select p from Participant p where p.p_equipe.nomEquipe = :nomEquipe and p.estAccepte = 1", Participant.class);
+    }
+    public Connexion getConnexion() {
+        return cx;
     }
 
     public boolean existe(int matricule) {
-        stmtExiste.setParameter("matricule", matricule);
-        return !stmtExiste.getResultList().isEmpty();
-    }
-
-    public boolean supprimer(Participant participant) {
-        if (participant != null) {
-            cx.getConnection().remove(participant);
-            return true;
-        }
-        return false;
-    }
-
-    public Participant inscrire(Participant participant) {
-        cx.getConnection().persist(participant);
-        return participant;
+        return participantsCollection.find(eq("matricule", matricule)).first() != null;
     }
 
 
-<<<<<<< HEAD
-    public Participant ajouterEquipe(Equipe equipe, Participant participant){
-        if(participant.getEquipe() == null){
-            participant.setEquipe(equipe);
-        }
-        return participant;
+    public boolean supprimer(int matricule) {
+        return participantsCollection.deleteOne(eq("matricule", matricule)).getDeletedCount() > 0;
+    }
 
-=======
+    public void inscrire(int matricule, String nom, String prenom, String motDePasse) {
+        Participant p = new Participant(prenom, nom, motDePasse, matricule);
+        participantsCollection.insertOne(p.toDocument());
+
+    }
+
+/*
+
     public Participant ajouterEquipe(Participant participant, Equipe equipe) {
         participant.setP_equipe(equipe);
         return participant;
->>>>>>> 0a12707180480491953473a2394775fa28e724cb
     }
 
 
@@ -101,7 +85,5 @@ public class Participants {
     /**
      * Retourner la connexion associée.
      */
-    public Connexion getConnexion() {
-        return cx;
-    }
+
 }

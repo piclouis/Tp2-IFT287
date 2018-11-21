@@ -1,23 +1,28 @@
 package CentreSportif;
 
-import javax.persistence.*;
+import org.bson.Document;
 
-@Entity
+
 public class Participant {
-    @Id
-    @GeneratedValue
-    private long m_id;
-
+    private int idParticipant;  // besoin d'un id ou le matricule fait la job
     private int matricule;
     private String nom;
     private String prenom;
     private String motDePasse;
     private int estAccepte;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Equipe p_equipe;
+    private String nomEquipe;   //not sure
 
     public Participant() {
+    }
+
+    public Participant(Document d)
+    {
+        matricule = d.getInteger("matricule");
+        nom = d.getString("nom");
+        prenom = d.getString("prenom");
+        motDePasse = d.getString("estAccepter");
+        estAccepte = d.getInteger("estAccepte");
+        nomEquipe = d.getString("nomEquipe");
     }
 
     public Participant(String prenom, String nom, String motDePasse, int matricule) {
@@ -27,6 +32,10 @@ public class Participant {
         this.setMotDePasse(motDePasse);
         this.setEstAccepte(0);
     }
+
+    public String getNomEquipe() { return nomEquipe; }
+
+    public void setNomEquipe(String nomEquipe) { this.nomEquipe = nomEquipe; }
 
     public int getEstAccepte() {
         return estAccepte;
@@ -60,14 +69,6 @@ public class Participant {
         this.prenom = prenom;
     }
 
-    public Equipe getP_equipe() {
-        return p_equipe;
-    }
-
-    public void setP_equipe(Equipe p_equipe) {
-        this.p_equipe = p_equipe;
-    }
-
     public String getMotDePasse() {
         return motDePasse;
     }
@@ -76,10 +77,20 @@ public class Participant {
         this.motDePasse = motDePasse;
     }
 
-    @Override
+
     public String toString() {
         return "  Matricule: " + matricule +
                 "\n  Nom: " + nom +
                 "\n  Prenom: " + prenom;
+    }
+
+    public Document toDocument()
+    {
+        return new Document().append("matricule", matricule)
+                .append("nom", nom)
+                .append("prenom", prenom)
+                .append("motDePasse", motDePasse)
+                .append("estAccepte", estAccepte)
+                .append("equipe", nomEquipe);
     }
 }

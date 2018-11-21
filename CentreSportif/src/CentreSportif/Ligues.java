@@ -14,6 +14,10 @@ public class Ligues {
                 "select l from Ligue l where l.nomLigue = :nomLigue", Ligue.class);
     }
 
+    public Connexion getConnexion() {
+        return cx;
+    }
+
     public boolean existe(String nomLigue) {
         stmtExiste.setParameter("nomLigue", nomLigue);
         return !stmtExiste.getResultList().isEmpty();
@@ -44,7 +48,5 @@ public class Ligues {
 
     }
 
-    public Connexion getConnexion() {
-        return cx;
-    }
+
 }

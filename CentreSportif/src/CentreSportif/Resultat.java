@@ -1,30 +1,38 @@
 package CentreSportif;
 
-import javax.persistence.*;
+import org.bson.Document;
 
-@Entity
+
 public class Resultat {
-    @Id
-    @GeneratedValue
-    private long m_id;
 
+    private int idResultat; //ajouter au constructeur
     private int scoreEquipeA;
     private int scoreEquipeB;
+    private Equipe equipeA; //not sure
+    private Equipe equipeB; //not sure
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Equipe equipeA;
-
-    private Equipe equipeB;
+    private int idEquipe;
 
     public Resultat() {
     }
 
-    public Resultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
+    public Resultat(Document d)
+    {
+        idResultat = d.getInteger("idResultat");
+        idEquipe = d.getInteger("idEquipe");
+    }
+
+    public Resultat(int idResultat, Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
+        this.setIdResultat(idResultat);
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
         this.setEquipeA(equipeA);
         this.setEquipeB(equipeB);
     }
+
+    public long getIdResultat() { return idResultat; }
+
+    public void setIdResultat(int idResultat) { this.idResultat = idResultat; }
 
     public int getScoreEquipeA() {
         return scoreEquipeA;
@@ -58,10 +66,17 @@ public class Resultat {
         this.equipeB = equipeB;
     }
 
-    @Override
     public String toString() {
-        return "Partie " + m_id +
+        return "Partie " + idResultat +
                 "\n  Equipe " + equipeA.getNomEquipe() + ": " + scoreEquipeA + " points\n" +
                 "  Equipe " + equipeB.getNomEquipe() + ": " + scoreEquipeB + " points ";
+    }
+    public Document toDocument()
+    {
+        return new Document().append("idResultat", idResultat)
+                .append("EquipeA", equipeA)
+                .append("scoreEquipeA", scoreEquipeA)
+                .append("EquipeB", equipeB)
+                .append("scoreEquipeB", scoreEquipeB);
     }
 }
