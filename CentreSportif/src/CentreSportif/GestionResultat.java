@@ -22,7 +22,6 @@ public class GestionResultat {
     public void ajouterResultat(String nomEquipeA, int scoreEquipeA, String nomEquipeB, int scoreEquipeB)
             throws IFT287Exception, Exception {
         try {
-            cx.demarreTransaction();
 
             // Verifie si les equipes existent
             Equipe equipeA = equipes.getEquipe(nomEquipeA);
@@ -32,17 +31,13 @@ public class GestionResultat {
             if (equipeB == null)
                 throw new IFT287Exception("Nom d'équipe B : " + nomEquipeB + " inexistant");
 
-            if (!equipeA.getE_ligue().equals(equipeB.getE_ligue()))
+            if (!equipeA.getNomLigue().equals(equipeB.getNomLigue()))
                 throw new IFT287Exception("Les deux equipes ne font pas partie de la même ligue.");
 
             // Ajout d'un resultat dans la table des livres
-            Resultat resultat = new Resultat(equipeA, scoreEquipeA, equipeB, scoreEquipeB);
-            resultats.ajouterResultat(resultat);
+            resultats.ajouterResultat(equipeA, scoreEquipeA, equipeB, scoreEquipeB);
 
-            // Commit
-            cx.commit();
         } catch (Exception e) {
-            cx.rollback();
             throw e;
         }
     }

@@ -1,7 +1,11 @@
 package CentreSportif;
 
 import static com.mongodb.client.model.Filters.*;
+
+import java.util.LinkedList;
 import java.util.List;
+
+import com.mongodb.client.MongoCursor;
 import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 
@@ -26,23 +30,33 @@ public class Resultats {
         resultatsCollection.insertOne(r.toDocument());
     }
 
-    public Resultat getResultats(int idResultat) {
-        Document d = resultatsCollection.find(eq("idResultat", idResultat)).first();
-        if(d != null)
+    public List<Resultat> getResultats(String nomEquipe) {
+        MongoCursor<Document> resultats = resultatsCollection.find
+                (and(eq("nomEquipeA", nomEquipe), eq("nomEquipeB", nomEquipe))).iterator();
+        List<Resultat> liste = new LinkedList<>();
+        try
         {
-            return new Resultat(d);
+            while (resultats.hasNext())
+            {
+                liste.add(new Resultat(resultats.next()));
+            }
         }
-        return null;
+        finally
+        {
+            resultats.close();
+        }
+
+        return liste;
     }
-//todo
+
     public int nbVictoires(String nomEquipe, List<Resultat> listResultats) {
         int cpt = 0;
 
         for (Resultat resultat : listResultats) {
-            if (resultat.getEquipeA().getNomEquipe().equals(nomEquipe) && resultat.getScoreEquipeA() > resultat.getScoreEquipeB())
+            if (resultat.getNomEquipeA().equals(nomEquipe) && resultat.getScoreEquipeA() > resultat.getScoreEquipeB())
                 cpt++;
 
-            if (resultat.getEquipeB().getNomEquipe().equals(nomEquipe) && resultat.getScoreEquipeB() > resultat.getScoreEquipeA())
+            if (resultat.getNomEquipeB().equals(nomEquipe) && resultat.getScoreEquipeB() > resultat.getScoreEquipeA())
                 cpt++;
         }
 
@@ -53,10 +67,10 @@ public class Resultats {
         int cpt = 0;
 
         for (Resultat resultat : listResultats) {
-            if (resultat.getEquipeA().getNomEquipe().equals(nomEquipe) && resultat.getScoreEquipeA() < resultat.getScoreEquipeB())
+            if (resultat.getNomEquipeA().equals(nomEquipe) && resultat.getScoreEquipeA() < resultat.getScoreEquipeB())
                 cpt++;
 
-            if (resultat.getEquipeB().getNomEquipe().equals(nomEquipe) && resultat.getScoreEquipeB() < resultat.getScoreEquipeA())
+            if (resultat.getNomEquipeB().equals(nomEquipe) && resultat.getScoreEquipeB() < resultat.getScoreEquipeA())
                 cpt++;
         }
 
@@ -67,7 +81,7 @@ public class Resultats {
         int cpt = 0;
 
         for (Resultat resultat : listResultats)
-            if ((resultat.getEquipeA().getNomEquipe().equals(nomEquipe) || resultat.getEquipeB().getNomEquipe().equals(nomEquipe)) &&
+            if ((resultat.getNomEquipeA().equals(nomEquipe) || resultat.getNomEquipeB().equals(nomEquipe)) &&
                     resultat.getScoreEquipeA() == resultat.getScoreEquipeB())
                 cpt++;
 

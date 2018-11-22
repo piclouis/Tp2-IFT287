@@ -1,7 +1,11 @@
 package CentreSportif;
 
 import static com.mongodb.client.model.Filters.*;
+
+import java.util.LinkedList;
 import java.util.List;
+
+import com.mongodb.client.MongoCursor;
 import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 
@@ -40,14 +44,40 @@ public class Equipes {
         }
         return null;
     }
-/*
+
     public List<Equipe> getEquipes(String nomLigue) {
-        stmtListeEquipesLigue.setParameter("nomLigue", nomLigue);
-        return stmtListeEquipesLigue.getResultList();
+        MongoCursor<Document> equipes = equipesCollection.find(eq("nomLigue", nomLigue)).iterator();
+        List<Equipe> liste = new LinkedList<>();
+        try
+        {
+            while (equipes.hasNext())
+            {
+                liste.add(new Equipe(equipes.next()));
+            }
+        }
+        finally
+        {
+            equipes.close();
+        }
+
+        return liste;
     }
 
     public List<Equipe> getEquipes() {
-        return stmtListeEquipesTriesLigue.getResultList();
+        MongoCursor<Document> equipes = equipesCollection.find().iterator();
+        List<Equipe> liste = new LinkedList<>();
+        try
+        {
+            while (equipes.hasNext())
+            {
+                liste.add(new Equipe(equipes.next()));
+            }
+        }
+        finally
+        {
+            equipes.close();
+        }
+
+        return liste;
     }
-*/
 }

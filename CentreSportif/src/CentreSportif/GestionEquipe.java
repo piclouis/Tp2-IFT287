@@ -1,5 +1,7 @@
 package CentreSportif;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 import java.util.List;
 
 public class GestionEquipe {
@@ -23,23 +25,22 @@ public class GestionEquipe {
 
     public void afficherEquipe(String nomEquipe) throws IFT287Exception {
         try {
-            cx.demarreTransaction();
 
             Equipe equipe = equipes.getEquipe(nomEquipe);
 
             if (equipe == null)
                 throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
 
-            if (!participants.existe(equipe.getCapitaine().getMatricule()))
-                throw new IFT287Exception("Matricule inexistante: " + equipe.getCapitaine().getMatricule());
+            if (!participants.existe(equipe.getCapitaine()))
+                throw new IFT287Exception("Matricule inexistante: " + equipe.getCapitaine());
 
-            Participant capitaine = participants.getParticipant(equipe.getCapitaine().getMatricule());
+            Participant capitaine = participants.getParticipant(equipe.getCapitaine());
 
             System.out.println("\nNom d'equipe : " + equipe.getNomEquipe() +
-                    "\nNom de ligue : " + equipe.getE_ligue().getNomLigue() +
+                    "\nNom de ligue : " + equipe.getNomLigue() +
                     "\nCapitaine : " + capitaine.getPrenom() + " " + capitaine.getNom());
             System.out.println();
-            List<Participant> listParticipants = equipe.getParticipants();
+            List<Participant> listParticipants = participants.getJoueursEquipe(nomEquipe);
 
             if (listParticipants.isEmpty())
                 System.out.println("Aucun joueur");
@@ -52,30 +53,23 @@ public class GestionEquipe {
             }
 
             System.out.println();
-
+            List<Resultat> listResulats = resultats.getResultats(nomEquipe);
             System.out.println("Liste des parties");
-            for (Resultat resultat : equipe.getResultats())
+            for (Resultat resultat : listResulats)
                 System.out.println(resultat.toString());
 
-            for (Resultat resultat : resultats.getResultats(equipe.getNomEquipe()))
-                System.out.println(resultat.toString());
-
-            cx.commit();
         } catch (Exception e) {
-            cx.rollback();
             throw e;
         }
     }
 
     public void afficherEquipes() {
         try {
-            cx.demarreTransaction();
             System.out.println();
             for (Equipe equipe : equipes.getEquipes())
                 System.out.println(equipe.toString());
-            cx.commit();
         } catch (Exception e) {
-            cx.rollback();
+
             throw e;
         }
 
@@ -83,15 +77,13 @@ public class GestionEquipe {
 
     public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception {
         try {
-            cx.demarreTransaction();
 
             // Vérifie si l'equipe existe déja
             if (equipes.existe(nomEquipe))
                 throw new IFT287Exception("Equipe existe déjà: " + nomEquipe);
 
             // Vérifie si la ligue existe
-            Ligue ligue = ligues.getLigue(nomLigue);
-            if (ligue == null)
+            if (ligues.existe(nomLigue))
                 throw new IFT287Exception("Ligue inexistante: " + nomEquipe);
 
             // Verifie si le capitaine existe
@@ -99,21 +91,16 @@ public class GestionEquipe {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matriculeCapitaine);
 
-            if (participant.getP_equipe() != null)
+            if (participant.getNomEquipe() != null)
                 throw new IFT287Exception("Participant est deja dans une equipe.");
 
             // Ajout d'un equipe.
-            Equipe equipe = new Equipe(ligue, nomEquipe, participant);
-            equipes.ajouter(equipe);
+            equipes.ajouter(nomLigue, nomEquipe, matriculeCapitaine);
 
-            participants.ajouterEquipe(participant, equipe);
-            participants.accepterJoueur(participant, equipe);
+            participants.ajouterEquipe(nomEquipe, matriculeCapitaine);
+            participants.accepterJoueur(nomEquipe, matriculeCapitaine);
 
-
-            // Commit
-            cx.commit();
         } catch (Exception e) {
-            cx.rollback();
             throw e;
         }
     }

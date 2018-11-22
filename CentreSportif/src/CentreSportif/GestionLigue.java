@@ -22,47 +22,33 @@ public class GestionLigue {
 
     public void ajouterLigue(String nomLigue, int nbJoueurMaxParEquipe) throws IFT287Exception, Exception {
         try {
-            cx.demarreTransaction();
-
             if (ligues.existe(nomLigue))
                 throw new IFT287Exception("Ligue " + nomLigue + " déjà existante");
 
-            Ligue ligue = new Ligue(nomLigue, nbJoueurMaxParEquipe);
-            ligues.ajouter(ligue);
 
-            // Commit
-            cx.commit();
+            ligues.ajouter(nomLigue, nbJoueurMaxParEquipe);
         } catch (Exception e) {
-            cx.rollback();
             throw e;
         }
     }
 
     public void supprimerLigue(String nomLigue) throws IFT287Exception, Exception {
         try {
-            cx.demarreTransaction();
-
             // Vérifier si la ligue existe
-            Ligue ligue = ligues.getLigue(nomLigue);
-            if (ligue == null)
+            if (ligues.existe(nomLigue))
                 throw new IFT287Exception("Ligue inexistant: " + nomLigue);
             // Vérifier si des équipes sont inscrite dans la ligue
             if (!equipes.getEquipes(nomLigue).isEmpty())
                 throw new IFT287Exception("Il existe une ou plusieurs equipes faisant parties de cette ligue.");
 
-            ligues.supprimer(ligue);
-            // Commit
-            cx.commit();
+            ligues.supprimer(nomLigue);
         } catch (Exception e) {
-            cx.rollback();
             throw e;
         }
     }
 
     public void afficherLigue(String nomLigue) throws IFT287Exception, Exception {
         try {
-            cx.demarreTransaction();
-
             if (!ligues.existe(nomLigue))
                 throw new IFT287Exception("Ligue inexistant: " + nomLigue);
 
@@ -71,7 +57,6 @@ public class GestionLigue {
 
             for (Equipe equipe : listeEquipes) {
                 List<Resultat> listResultats = resultats.getResultats(equipe.getNomEquipe());
-                listResultats.addAll(equipes.getEquipe(equipe.getNomEquipe()).getResultats());
 
                 int nbVictoires = resultats.nbVictoires(equipe.getNomEquipe(), listResultats);
                 int nbDefaites = resultats.nbDefaites(equipe.getNomEquipe(), listResultats);
@@ -82,10 +67,7 @@ public class GestionLigue {
                 System.out.println("  Nombre de defaites: " + nbDefaites);
                 System.out.println("  Nombre de parties nulles: " + nbPartieNulles);
             }
-
-            cx.commit();
         } catch (Exception e) {
-            cx.rollback();
             throw e;
         }
     }

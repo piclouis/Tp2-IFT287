@@ -8,8 +8,8 @@ public class Resultat {
     private int idResultat; //ajouter au constructeur
     private int scoreEquipeA;
     private int scoreEquipeB;
-    private Equipe equipeA; //not sure
-    private Equipe equipeB; //not sure
+    private String nomEquipeA; //not sure
+    private String nomEquipeB; //not sure
 
     private int idEquipe;
 
@@ -25,8 +25,8 @@ public class Resultat {
     public Resultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
-        this.setEquipeA(equipeA);
-        this.setEquipeB(equipeB);
+        this.setNomEquipeA(nomEquipeA);
+        this.setNomEquipeB(nomEquipeB);
     }
 
     public int getIdResultat() { return idResultat; }
@@ -48,34 +48,42 @@ public class Resultat {
     public void setScoreEquipeB(int scoreEquipeB) {
         this.scoreEquipeB = scoreEquipeB;
     }
-// not sure
-    public Equipe getEquipeA() {
-        return equipeA;
+
+    public String getNomEquipeA() {
+        return nomEquipeA;
     }
 
-    public void setEquipeA(Equipe equipeA) {
-        this.equipeA = equipeA;
+    public void setNomEquipeA(String nomEquipeA) {
+        this.nomEquipeA = nomEquipeA;
     }
 
-    public Equipe getEquipeB() {
-        return equipeB;
+    public String getNomEquipeB() {
+        return nomEquipeB;
     }
 
-    public void setEquipeB(Equipe equipeB) {
-        this.equipeB = equipeB;
+    public void setNomEquipeB(String nomEquipeB) {
+        this.nomEquipeB = nomEquipeB;
     }
-//
-    public String toString() {    // à refaire
+
+    public int getIdEquipe() {
+        return idEquipe;
+    }
+
+    public void setIdEquipe(int idEquipe) {
+        this.idEquipe = idEquipe;
+    }
+
+    public String toString() {
         return "Partie " + idResultat +
-                "\n  Equipe " + equipeA.getNomEquipe() + ": " + scoreEquipeA + " points\n" +
-                "  Equipe " + equipeB.getNomEquipe() + ": " + scoreEquipeB + " points ";
+                "\n  Equipe " + nomEquipeA + ": " + scoreEquipeA + " points\n" +
+                "  Equipe " +nomEquipeB + ": " + scoreEquipeB + " points ";
     }
     public Document toDocument()
     {
         return new Document().append("idResultat", idResultat) //*
-                .append("EquipeA", equipeA)
+                .append("nomEquipeA", nomEquipeA)
                 .append("scoreEquipeA", scoreEquipeA)
-                .append("EquipeB", equipeB)
+                .append("nomEquipeB", nomEquipeB)
                 .append("scoreEquipeB", scoreEquipeB);
     }
 }

@@ -4,13 +4,12 @@ import org.bson.Document;
 
 
 public class Participant {
-    private int idParticipant;  // besoin d'un id ou le matricule fait la job
     private int matricule;
     private String nom;
     private String prenom;
     private String motDePasse;
     private int estAccepte;
-    private String nomEquipe;   //not sure
+    private String nomEquipe;
 
     public Participant() {
     }

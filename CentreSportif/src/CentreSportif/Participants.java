@@ -1,7 +1,12 @@
 package CentreSportif;
 
 import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Updates.*;
+
+import java.util.LinkedList;
 import java.util.List;
+
+import com.mongodb.client.MongoCursor;
 import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 
@@ -29,57 +34,56 @@ public class Participants {
         return participantsCollection.deleteOne(eq("matricule", matricule)).getDeletedCount() > 0;
     }
 
-    public void inscrire(int matricule, String nom, String prenom, String motDePasse) {
+    public void inscrire(String prenom, String nom, String motDePasse, int matricule) {
         Participant p = new Participant(prenom, nom, motDePasse, matricule);
         participantsCollection.insertOne(p.toDocument());
 
     }
 
-/*
-
-    public Participant ajouterEquipe(Participant participant, Equipe equipe) {
-        participant.setP_equipe(equipe);
-        return participant;
+    public void ajouterEquipe(String nomEquipe, int matriculeCapitaine) {
+        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("nomEquipe", nomEquipe));
     }
 
+    public void supprimerEquipe(int matriculeCapitaine) {
+        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("nomEquipe", null));
 
-    public Participant supprimerEquipe(Participant participant) {
-
-        participant.setP_equipe(null);
-
-        return participant;
     }
 
-    public Participant accepterJoueur(Participant participant, Equipe equipe) {
-        participant.setEstAccepte(1);
-        equipe.ajouterJoueur(participant);
-
-        return participant;
+    public void accepterJoueur(String nomEquipe, int matriculeCapitaine) {
+        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("estAccepte", true));
     }
 
-    public Participant refuserJoueur(Participant participant, Equipe equipe) {
-        participant.setEstAccepte(0);
-        equipe.supprimerJoueur(participant);
-
-        return participant;
+    public void refuserJoueur(String nomEquipe, int matriculeCapitaine) {
+        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("estAccepte", false));
     }
 
     //Lecture d'un participant
 
     public Participant getParticipant(int matricule) {
-        stmtExiste.setParameter("matricule", matricule);
-        List<Participant> participants = stmtExiste.getResultList();
-        if (!participants.isEmpty()) {
-            return participants.get(0);
-        } else {
-            return null;
+        Document d = participantsCollection.find(eq("matricule", matricule)).first();
+        if(d != null)
+        {
+            return new Participant(d);
         }
+        return null;
     }
 
     public List<Participant> getJoueursEquipe(String nomEquipe) {
-        stmtExisteJoueursEquipe.setParameter("nomEquipe", nomEquipe);
-        List<Participant> participants = stmtExisteJoueursEquipe.getResultList();
-        return participants;
+        MongoCursor<Document> participants = participantsCollection.find(eq("nomEquipe", nomEquipe)).iterator();
+        List<Participant> liste = new LinkedList<>();
+        try
+        {
+            while (participants.hasNext())
+            {
+                liste.add(new Participant(participants.next()));
+            }
+        }
+        finally
+        {
+            participants.close();
+        }
+
+        return liste;
     }
-*/
+
 }
