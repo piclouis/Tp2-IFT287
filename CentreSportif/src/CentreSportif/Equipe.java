@@ -10,7 +10,6 @@ public class Equipe {
     private int capitaine;
 
     private String nomLigue;
-    private int idResultats;
 
     public Equipe() {
     }
@@ -20,8 +19,6 @@ public class Equipe {
         nomEquipe = d.getString("nomEquipe");
         nomLigue = d.getString("nomLigue");
         capitaine = d.getInteger("capitaine");
-        idResultats = d.getInteger("idResultat");
-
     }
 
     public Equipe(String nomEquipe, int capitaine, String nomLigue) {
@@ -50,26 +47,15 @@ public class Equipe {
     }
 
 
-    public int getIdResultats() { return idResultats; }
-
     public String toString() {      // à refaire
         return "Nom Ligue: '" + nomLigue +
                 "' | Nom Equipe: '" + nomEquipe;
-    }
-
-    public void ajouterJoueur() {
-        //matricule++;
-    }
-
-    public void supprimerJoueur() {
-        //matricule--;
     }
 
     public Document toDocument()
     {
         return new Document().append("nomLigue", nomLigue)
                 .append("nomEquipe", nomEquipe)
-                .append("capitaine", capitaine)
-                .append("idResultat", idResultats);
+                .append("capitaine", capitaine);
     }
 }

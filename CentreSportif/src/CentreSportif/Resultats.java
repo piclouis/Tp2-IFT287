@@ -32,7 +32,7 @@ public class Resultats {
 
     public List<Resultat> getResultats(String nomEquipe) {
         MongoCursor<Document> resultats = resultatsCollection.find
-                (and(eq("nomEquipeA", nomEquipe), eq("nomEquipeB", nomEquipe))).iterator();
+                (or(eq("nomEquipeA", nomEquipe), eq("nomEquipeB", nomEquipe))).iterator();
         List<Resultat> liste = new LinkedList<>();
         try
         {

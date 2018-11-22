@@ -24,7 +24,7 @@ public class Ligues {
     }
 
     public boolean supprimer(String nomLigue) {
-        return liguesCollection.deleteOne(eq("nomLigues", nomLigue)).getDeletedCount() > 0;
+        return liguesCollection.deleteOne(eq("nomLigue", nomLigue)).getDeletedCount() > 0;
     }
 
     public void ajouter(String nomLigue, int nbJoueurMaxParEquipe) {

@@ -61,10 +61,10 @@ public class GestionParticipant {
      */
     public void ajouterJoueur(String nomEquipe, int matricule) throws IFT287Exception, Exception {
         try {
-            if (equipes.existe(nomEquipe))
+            if (!equipes.existe(nomEquipe))
                 throw new IFT287Exception("Nom d'équipe inexistant: " + nomEquipe);
             Participant participant = participants.getParticipant(matricule);
-            if (participants.existe(matricule))
+            if (!participants.existe(matricule))
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
             if (participant.getNomEquipe() != null)
@@ -117,7 +117,7 @@ public class GestionParticipant {
             if (participant == null)
                 throw new IFT287Exception("Participant inexistant: " + matricule);
 
-            if (nomEquipe.equals(participant.getNomEquipe()))
+            if (!nomEquipe.equals(participant.getNomEquipe()))
                 throw new IFT287Exception("Il faut ajouter le participant dans l'equipe avant de l'accepter");
             if (participant.getNomEquipe() == null)
                 throw new IFT287Exception("Le participant avec la matricule: " + matricule + " ne fait partie de l'équipe: " + nomEquipe);

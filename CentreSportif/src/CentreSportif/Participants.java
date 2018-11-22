@@ -41,20 +41,21 @@ public class Participants {
     }
 
     public void ajouterEquipe(String nomEquipe, int matriculeCapitaine) {
-        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("nomEquipe", nomEquipe));
+        participantsCollection.updateOne(eq("matricule", matriculeCapitaine), set("nomEquipe", nomEquipe));
     }
 
     public void supprimerEquipe(int matriculeCapitaine) {
-        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("nomEquipe", null));
+        participantsCollection.updateOne
+                (eq("matrice", matriculeCapitaine), combine(set("nomEquipe", null), set("estAccepte", 0)));
 
     }
 
     public void accepterJoueur(String nomEquipe, int matriculeCapitaine) {
-        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("estAccepte", true));
+        participantsCollection.updateOne(eq("matricule", matriculeCapitaine), set("estAccepte", 1));
     }
 
     public void refuserJoueur(String nomEquipe, int matriculeCapitaine) {
-        participantsCollection.updateOne(eq("matrice", matriculeCapitaine), set("estAccepte", false));
+        participantsCollection.updateOne(eq("matricule", matriculeCapitaine), set("estAccepte", 0));
     }
 
     //Lecture d'un participant
@@ -69,7 +70,8 @@ public class Participants {
     }
 
     public List<Participant> getJoueursEquipe(String nomEquipe) {
-        MongoCursor<Document> participants = participantsCollection.find(eq("nomEquipe", nomEquipe)).iterator();
+        MongoCursor<Document> participants = participantsCollection.find
+                (and(eq("nomEquipe", nomEquipe), eq("estAccepte" , 1) )).iterator();
         List<Participant> liste = new LinkedList<>();
         try
         {

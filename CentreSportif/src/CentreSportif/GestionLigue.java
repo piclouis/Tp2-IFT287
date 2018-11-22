@@ -35,7 +35,7 @@ public class GestionLigue {
     public void supprimerLigue(String nomLigue) throws IFT287Exception, Exception {
         try {
             // Vérifier si la ligue existe
-            if (ligues.existe(nomLigue))
+            if (!ligues.existe(nomLigue))
                 throw new IFT287Exception("Ligue inexistant: " + nomLigue);
             // Vérifier si des équipes sont inscrite dans la ligue
             if (!equipes.getEquipes(nomLigue).isEmpty())

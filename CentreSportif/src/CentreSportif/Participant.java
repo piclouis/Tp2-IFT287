@@ -19,7 +19,7 @@ public class Participant {
         matricule = d.getInteger("matricule");
         nom = d.getString("nom");
         prenom = d.getString("prenom");
-        motDePasse = d.getString("estAccepter");
+        motDePasse = d.getString("motDePasse");
         estAccepte = d.getInteger("estAccepte");
         nomEquipe = d.getString("nomEquipe");
     }
