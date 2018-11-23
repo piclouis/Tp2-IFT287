@@ -34,6 +34,12 @@ public class GestionResultat {
             if (!equipeA.getNomLigue().equals(equipeB.getNomLigue()))
                 throw new IFT287Exception("Les deux equipes ne font pas partie de la même ligue.");
 
+            if(scoreEquipeA < 0)
+                throw new IFT287Exception("Le score de l'équipe A doit être positif.");
+
+            if(scoreEquipeB < 0)
+                throw new IFT287Exception("Le score de l'équipe B doit être positif.");
+
             // Ajout d'un resultat dans la table des livres
             resultats.ajouterResultat(equipeA.getNomEquipe(), scoreEquipeA, equipeB.getNomEquipe(), scoreEquipeB);
 

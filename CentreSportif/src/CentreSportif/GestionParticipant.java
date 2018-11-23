@@ -4,16 +4,21 @@ public class GestionParticipant {
     private Connexion cx;
     private Participants participants;
     private Equipes equipes;
+    private Ligues ligues;
 
     /**
      * Création d'une instance
      */
-    public GestionParticipant(Participants participants, Equipes equipes) throws IFT287Exception {
+    public GestionParticipant(Participants participants, Equipes equipes, Ligues ligues) throws IFT287Exception {
         this.cx = participants.getConnexion();
-        if (participants.getConnexion() != equipes.getConnexion())
+        if (participants.getConnexion() != equipes.getConnexion() )
             throw new IFT287Exception("Les instances de Participants et de Equipes n'utilisent pas la même connexion au serveur");
+        if (participants.getConnexion() != ligues.getConnexion() )
+            throw new IFT287Exception("Les instances de Participants et de Ligue n'utilisent pas la même connexion au serveur");
+
         this.participants = participants;
         this.equipes = equipes;
+        this.ligues = ligues;
     }
 
     /**
@@ -126,6 +131,13 @@ public class GestionParticipant {
 
             if (participant.getEstAccepte() != 0)
                 throw new IFT287Exception("Participant: " + matricule + " deja accepte");
+
+            Ligue ligue = ligues.getLigue(equipe.getNomLigue());
+            if(ligue == null)
+                throw new IFT287Exception("Ligue: " + ligue.getNomLigue() + " non existante");
+
+            if (ligue.getNbJoueurMaxParEquipe() <= participants.getJoueursEquipe(nomEquipe).size())
+                throw new IFT287Exception("Equipe complete");
 
             participants.accepterJoueur(nomEquipe, matricule);
 

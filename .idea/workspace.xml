@@ -25,17 +25,17 @@
       <file leaf-file-name="Equipes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-97">
+            <state relative-caret-position="476">
               <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Participants.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Participants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29">
+            <state relative-caret-position="413">
               <caret line="48" column="30" lean-forward="false" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
 >>>>>>> origin/LPP-TP4
               <folding>
@@ -45,6 +45,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Resultat.class" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/bin/CentreSportif/Resultat.class">
           <provider selected="true" editor-type-id="text-editor" />
@@ -83,6 +84,8 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
+=======
+>>>>>>> origin/LPP-TP4
       <file leaf-file-name="CentreSportif.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/CentreSportif.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,8 +111,8 @@
       <file leaf-file-name="GestionResultat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionResultat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+            <state relative-caret-position="391">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
 >>>>>>> origin/LPP-TP4
             </state>
@@ -126,7 +129,7 @@
       <file leaf-file-name="Resultat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Resultat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="289">
               <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
 >>>>>>> origin/LPP-TP4
               <folding>
@@ -144,6 +147,7 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="Connexion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Connexion.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -151,10 +155,33 @@
               <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
 =======
       <file leaf-file-name="GestionParticipant.java" pinned="false" current-in-tab="false">
+=======
+      <file leaf-file-name="GestionParticipant.java" pinned="false" current-in-tab="true">
+>>>>>>> origin/LPP-TP4
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionParticipant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="99" column="32" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
+            <state relative-caret-position="459">
+              <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestionLigue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionLigue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="28" column="92" lean-forward="false" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestionCentreSportif.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionCentreSportif.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="30" column="82" lean-forward="false" selection-start-line="30" selection-start-column="82" selection-end-line="30" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -163,7 +190,7 @@
       <file leaf-file-name="Participant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
+            <state relative-caret-position="374">
               <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
@@ -173,7 +200,7 @@
       <file leaf-file-name="GestionEquipe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionEquipe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="884">
               <caret line="54" column="58" lean-forward="false" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
 >>>>>>> origin/LPP-TP4
               <folding>
@@ -207,6 +234,7 @@
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Connexion.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Ligue.java" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Resultat.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipes.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionResultat.java" />
@@ -214,10 +242,11 @@
 =======
 >>>>>>> origin/LPP-TP4
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionLigue.java" />
+=======
+>>>>>>> origin/LPP-TP4
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Ligues.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participant.java" />
         <option value="$PROJECT_DIR$/CentreSportif/mongo.jar!/org/bson/Document.class" />
-        <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionResultat.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionEquipe.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipes.java" />
         <option value="$PROJECT_DIR$/CentreSportif/mongo.jar!/com/mongodb/client/model/Filters.class" />
@@ -225,10 +254,16 @@
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Resultat.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipe.java" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/CentreSportif.java" />
-        <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionParticipant.java" />
         <option value="$PROJECT_DIR$/CentreSportif/mongo.jar!/com/mongodb/client/model/Updates.class" />
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participants.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionEquipe.java" />
+=======
+        <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionCentreSportif.java" />
+        <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionLigue.java" />
+        <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionResultat.java" />
+        <option value="$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionParticipant.java" />
+>>>>>>> origin/LPP-TP4
       </list>
     </option>
   </component>
@@ -257,11 +292,18 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
 =======
       <pane id="Scope" />
+>>>>>>> origin/LPP-TP4
+=======
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
 >>>>>>> origin/LPP-TP4
       <pane id="ProjectPane">
         <subPane>
@@ -286,10 +328,13 @@
         </subPane>
       </pane>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+>>>>>>> origin/LPP-TP4
+=======
 >>>>>>> origin/LPP-TP4
     </panes>
   </component>
@@ -464,7 +509,6 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -480,9 +524,39 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299923" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 >>>>>>> origin/LPP-TP4
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21024546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21816283" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299923" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -541,11 +615,17 @@
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionParticipant.java</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="15" />
+      <option name="time" value="18" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -738,6 +818,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionLigue.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -750,6 +831,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/LPP-TP4
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Ligues.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -771,10 +854,13 @@
 =======
         <state relative-caret-position="816">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+<<<<<<< HEAD
 >>>>>>> origin/LPP-TP4
           <folding>
             <element signature="e#2483#2484#0" expanded="true" />
           </folding>
+=======
+>>>>>>> origin/LPP-TP4
         </state>
       </provider>
     </entry>
@@ -786,10 +872,6 @@
 =======
         <state relative-caret-position="255">
           <caret line="90" column="23" lean-forward="false" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
-          <folding>
-            <element signature="e#2902#2903#0" expanded="true" />
-            <element signature="e#2961#2962#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,11 +888,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="646">
           <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
-            <element signature="e#914#915#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="false" />
+            <element signature="e#946#947#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -818,16 +900,21 @@
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipes.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="561">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
 =======
         <state relative-caret-position="-97">
+=======
+        <state relative-caret-position="476">
+>>>>>>> origin/LPP-TP4
           <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
           <folding />
 >>>>>>> origin/LPP-TP4
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionCentreSportif.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -853,9 +940,11 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/LPP-TP4
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Resultat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="289">
           <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding>
             <element signature="e#1144#1145#0" expanded="true" />
@@ -871,16 +960,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionResultat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Participant.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="527">
           <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
@@ -890,6 +972,9 @@
           </folding>
 =======
         <state relative-caret-position="348">
+=======
+        <state relative-caret-position="374">
+>>>>>>> origin/LPP-TP4
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
 >>>>>>> origin/LPP-TP4
@@ -906,10 +991,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/Equipe.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="663">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
 =======
         <state relative-caret-position="391">
+=======
+        <state relative-caret-position="884">
+>>>>>>> origin/LPP-TP4
           <caret line="54" column="58" lean-forward="false" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
 >>>>>>> origin/LPP-TP4
           <folding>
@@ -918,6 +1007,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/CentreSportif/bin/CentreSportif/Participants.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -953,6 +1043,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/LPP-TP4
     <entry file="jar://$PROJECT_DIR$/CentreSportif/mongo.jar!/com/mongodb/client/model/Updates.class">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -961,7 +1053,10 @@
 =======
         <state relative-caret-position="200">
           <caret line="32" column="31" lean-forward="false" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+<<<<<<< HEAD
           <folding />
+>>>>>>> origin/LPP-TP4
+=======
 >>>>>>> origin/LPP-TP4
         </state>
       </provider>
@@ -990,12 +1085,52 @@
           <caret line="87" column="12" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="12" />
 =======
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
+        <state relative-caret-position="413">
           <caret line="48" column="30" lean-forward="false" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
 >>>>>>> origin/LPP-TP4
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionCentreSportif.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="30" column="82" lean-forward="false" selection-start-line="30" selection-start-column="82" selection-end-line="30" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionLigue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="28" column="92" lean-forward="false" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionResultat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/CentreSportif.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="137" column="71" lean-forward="false" selection-start-line="137" selection-start-column="71" selection-end-line="137" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CentreSportif/src/CentreSportif/GestionParticipant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
