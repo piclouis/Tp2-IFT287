@@ -25,7 +25,6 @@ public class GestionEquipe {
 
     public void afficherEquipe(String nomEquipe) throws IFT287Exception {
         try {
-
             Equipe equipe = equipes.getEquipe(nomEquipe);
 
             if (equipe == null)

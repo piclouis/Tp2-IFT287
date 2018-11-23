@@ -132,7 +132,11 @@ public class CentreSportif {
                     String nomEquipe = readString(tokenizer);
                     int matricule = readInt(tokenizer);
                     gestionCentreSportif.getGestionParticipant().refuserJoueur(nomEquipe, matricule);
-                } else if (command.equals("quitter")) {
+                } else if (command.equals("supprimerJoueur")) {
+                    String nomEquipe = readString(tokenizer);
+                    int matricule = readInt(tokenizer);
+                    gestionCentreSportif.getGestionParticipant().supprimerJoueur(nomEquipe, matricule);
+                }else if (command.equals("quitter")) {
                     return;
                 } else {
                     System.out.println(" : Transaction non reconnue");

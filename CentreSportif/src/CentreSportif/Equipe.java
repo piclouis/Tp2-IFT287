@@ -46,10 +46,9 @@ public class Equipe {
         return capitaine;
     }
 
-
     public String toString() {      // à refaire
         return "Nom Ligue: '" + nomLigue +
-                "' | Nom Equipe: '" + nomEquipe;
+                "' | Nom Equipe: '" + nomEquipe + "'";
     }
 
     public Document toDocument()
