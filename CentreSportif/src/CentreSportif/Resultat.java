@@ -4,34 +4,27 @@ import org.bson.Document;
 
 
 public class Resultat {
-
-    private int idResultat; //ajouter au constructeur
     private int scoreEquipeA;
     private int scoreEquipeB;
     private String nomEquipeA; //not sure
     private String nomEquipeB; //not sure
 
-    private int idEquipe;
-
     public Resultat() {
     }
 
-    public Resultat(Document d)
-    {
-        idResultat = d.getInteger("idResultat");
-        idEquipe = d.getInteger("idEquipe");
+    public Resultat(Document d) {
+        scoreEquipeA = d.getInteger("scoreEquipeA");
+        scoreEquipeB = d.getInteger("scoreEquipeB");
+        nomEquipeA = d.getString("nomEquipeA");
+        nomEquipeB = d.getString("nomEquipeB");
     }
 
-    public Resultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
+    public Resultat(String nomEquipeA, int scoreEquipeA, String nomEquipeB, int scoreEquipeB) {
         this.setScoreEquipeA(scoreEquipeA);
         this.setScoreEquipeB(scoreEquipeB);
         this.setNomEquipeA(nomEquipeA);
         this.setNomEquipeB(nomEquipeB);
     }
-
-    public int getIdResultat() { return idResultat; }
-
-    public void setIdResultat(int idResultat) { this.idResultat = idResultat; }
 
     public int getScoreEquipeA() {
         return scoreEquipeA;
@@ -65,22 +58,14 @@ public class Resultat {
         this.nomEquipeB = nomEquipeB;
     }
 
-    public int getIdEquipe() {
-        return idEquipe;
-    }
-
-    public void setIdEquipe(int idEquipe) {
-        this.idEquipe = idEquipe;
-    }
-
     public String toString() {
-        return "Partie " + idResultat +
+        return "Partie " +
                 "\n  Equipe " + nomEquipeA + ": " + scoreEquipeA + " points\n" +
-                "  Equipe " +nomEquipeB + ": " + scoreEquipeB + " points ";
+                "  Equipe " + nomEquipeB + ": " + scoreEquipeB + " points ";
     }
-    public Document toDocument()
-    {
-        return new Document().append("idResultat", idResultat) //*
+
+    public Document toDocument() {
+        return new Document() //*
                 .append("nomEquipeA", nomEquipeA)
                 .append("scoreEquipeA", scoreEquipeA)
                 .append("nomEquipeB", nomEquipeB)

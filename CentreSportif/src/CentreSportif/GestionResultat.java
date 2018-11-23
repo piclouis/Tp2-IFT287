@@ -35,7 +35,7 @@ public class GestionResultat {
                 throw new IFT287Exception("Les deux equipes ne font pas partie de la même ligue.");
 
             // Ajout d'un resultat dans la table des livres
-            resultats.ajouterResultat(equipeA, scoreEquipeA, equipeB, scoreEquipeB);
+            resultats.ajouterResultat(equipeA.getNomEquipe(), scoreEquipeA, equipeB.getNomEquipe(), scoreEquipeB);
 
         } catch (Exception e) {
             throw e;

@@ -46,7 +46,7 @@ public class Participants {
 
     public void supprimerEquipe(int matriculeCapitaine) {
         participantsCollection.updateOne
-                (eq("matrice", matriculeCapitaine), combine(set("nomEquipe", null), set("estAccepte", 0)));
+                (eq("matricule", matriculeCapitaine), combine(set("nomEquipe", null), set("estAccepte", 0)));
 
     }
 

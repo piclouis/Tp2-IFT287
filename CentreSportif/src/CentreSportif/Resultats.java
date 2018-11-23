@@ -18,6 +18,7 @@ public class Resultats {
         this.cx = cx;
         resultatsCollection = cx.getDatabase().getCollection("Resultats");
     }
+
     /**
      * Retourner la connexion associée.
      */
@@ -25,8 +26,8 @@ public class Resultats {
         return cx;
     }
 
-    public void ajouterResultat(Equipe equipeA, int scoreEquipeA, Equipe equipeB, int scoreEquipeB) {
-        Resultat r = new Resultat(equipeA, scoreEquipeA, equipeB, scoreEquipeB);
+    public void ajouterResultat(String nomEquipeA, int scoreEquipeA, String nomEquipeB, int scoreEquipeB) {
+        Resultat r = new Resultat(nomEquipeA, scoreEquipeA, nomEquipeB, scoreEquipeB);
         resultatsCollection.insertOne(r.toDocument());
     }
 
@@ -34,15 +35,11 @@ public class Resultats {
         MongoCursor<Document> resultats = resultatsCollection.find
                 (or(eq("nomEquipeA", nomEquipe), eq("nomEquipeB", nomEquipe))).iterator();
         List<Resultat> liste = new LinkedList<>();
-        try
-        {
-            while (resultats.hasNext())
-            {
+        try {
+            while (resultats.hasNext()) {
                 liste.add(new Resultat(resultats.next()));
             }
-        }
-        finally
-        {
+        } finally {
             resultats.close();
         }
 

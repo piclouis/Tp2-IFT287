@@ -36,10 +36,8 @@ public class Equipes {
 
     //Lecture d'une equipe
     public Equipe getEquipe(String nomEquipe) {
-
         Document d = equipesCollection.find(eq("nomEquipe", nomEquipe)).first();
-        if(d != null)
-        {
+        if (d != null) {
             return new Equipe(d);
         }
         return null;
@@ -48,15 +46,11 @@ public class Equipes {
     public List<Equipe> getEquipes(String nomLigue) {
         MongoCursor<Document> equipes = equipesCollection.find(eq("nomLigue", nomLigue)).iterator();
         List<Equipe> liste = new LinkedList<>();
-        try
-        {
-            while (equipes.hasNext())
-            {
+        try {
+            while (equipes.hasNext()) {
                 liste.add(new Equipe(equipes.next()));
             }
-        }
-        finally
-        {
+        } finally {
             equipes.close();
         }
 
@@ -66,15 +60,11 @@ public class Equipes {
     public List<Equipe> getEquipes() {
         MongoCursor<Document> equipes = equipesCollection.find().iterator();
         List<Equipe> liste = new LinkedList<>();
-        try
-        {
-            while (equipes.hasNext())
-            {
+        try {
+            while (equipes.hasNext()) {
                 liste.add(new Equipe(equipes.next()));
             }
-        }
-        finally
-        {
+        } finally {
             equipes.close();
         }
 
