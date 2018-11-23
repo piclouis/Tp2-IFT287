@@ -28,7 +28,7 @@ public class GestionCentreSportif {
         ligues = new Ligues(cx);
         resultats = new Resultats(cx);
 
-        setGestionParticipant(new GestionParticipant(participants, equipes));
+        setGestionParticipant(new GestionParticipant(participants, equipes, ligues));
         setGestionEquipe(new GestionEquipe(ligues, equipes, participants, resultats));
         setGestionLigue(new GestionLigue(ligues, equipes, resultats));
         setGestionResultat(new GestionResultat(resultats, equipes));

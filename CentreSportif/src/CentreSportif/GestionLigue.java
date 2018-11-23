@@ -25,6 +25,8 @@ public class GestionLigue {
             if (ligues.existe(nomLigue))
                 throw new IFT287Exception("Ligue " + nomLigue + " déjà existante");
 
+            if(nbJoueurMaxParEquipe < 1)
+                throw new IFT287Exception("Il doit y avoir au moins un joueur dans l'équipe.");
 
             ligues.ajouter(nomLigue, nbJoueurMaxParEquipe);
         } catch (Exception e) {
