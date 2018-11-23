@@ -78,7 +78,11 @@ public class GestionEquipe {
     public void ajouterEquipe(String nomLigue, String nomEquipe, int matriculeCapitaine) throws IFT287Exception {
         try {
 
+            // Vérifie si la ligue existe
+            if (!ligues.existe(nomLigue))
+                throw new IFT287Exception("Ligue inexistante: " + nomLigue);
             // Vérifie si l'equipe existe déja
+
             if (equipes.existe(nomEquipe))
                 throw new IFT287Exception("Equipe existe déjà: " + nomEquipe);
 
