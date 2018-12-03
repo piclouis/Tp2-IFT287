@@ -29,7 +29,6 @@ public class Equipe {
 
     public Equipe(Ligue ligue, String nomEquipe, Participant participant) {
         this.setE_ligue(ligue);
-
         this.e_ligue = ligue;
         this.nomEquipe = nomEquipe;
         this.capitaine = participant;
